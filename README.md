@@ -1,2 +1,1 @@
 # remeketlen-remek
-szia roland

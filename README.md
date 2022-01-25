@@ -1,2 +1,3 @@
 # remeketlen-remek
-szia roland
+## Dos Archívum
+>Ez a git repo egy Dos Arhívum weboldal és hozzátartozó mobilosalkalmazást foglalja össze. 

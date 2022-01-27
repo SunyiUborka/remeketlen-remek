@@ -1,10 +1,11 @@
 # remeketlen-remek
 ## Dos Archívum
-A mi remekünk Dos Arhívum weboldal és hozzátartozó mobilosalkalmazást foglalja össze.
+A mi remekünk Dos Arhívum weboldal és hozzátartozó telefonos alkalmazást foglalja össze.
 
 A projektben Tóth Péter, Kiss Ábrahám és Csehi Roland szerepel.
 
-Azért ezt választottuk, mivel az interneten nem igen találhatunk ilyesmit, továbbá mivel a DOS programok igen régiek már, kezdenek a felejtésbe kerülni és egyre nehezebb hozzájutni ezekhez. Ezért készítünk ilyet.
+A DOS programok igen régiek már, kezdenek a felejtésbe kerülni és egyre nehezebb hozzájutni ezekhez.
+Azért ezt választottuk, mivel az interneten vannak hasonló oldalak, de nem igen alkalmasak erre. A miénk olyan funciokkal fog rendelkezni, ami a többinek nincs.
 
 
 ## A jelenlegi tervezettek

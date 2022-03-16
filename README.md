@@ -26,7 +26,7 @@ Azért ezt választottuk, mivel az interneten vannak hasonló oldalak, de nem ig
 * feltölteni a programokat, még olyanokat is, amiket ő maguk készítettek
 
 ### Mobilos alkalmazás
-* alkalmazás nem lesz lehetséges a programok kipróbálásra, csupán csak hozzáférne az user profilhoz, a programok oldalaikhoz, komment/forum-ozni
+* alkalmazás nem lesz lehetséges a programok kipróbálásra, csupán csak hozzáférne az user profilhoz, a programok oldalaikhoz, komment/forum-ozni.
 
 ## Jelenlegi tervezett használatos cuccok listája
 * ngnix

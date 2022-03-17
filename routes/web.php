@@ -14,3 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('home');
+
+Route::get("/register", [\App\Http\Controllers\RegisterController::class, "create"])
+    ->name("register.create");
+Route::post("/register", [\App\Http\Controllers\RegisterController::class, "store"])
+    ->name("register.store");
+
+Route::get("/login", [\App\Http\Controllers\AuthController::class, "login"])
+    ->name("auth.login");
+Route::post("/login", [\App\Http\Controllers\AuthController::class, "authenticate"])
+    ->name("auth.authenticate");
+Route::post("/logout", [\App\Http\Controllers\AuthController::class, "logout"])
+    ->name("auth.logout");

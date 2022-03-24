@@ -33,3 +33,5 @@ Azért ezt választottuk, mivel az interneten vannak hasonló oldalak, de nem ig
 * mysql
 * laravel
 * DosBox
+
+![alt text](https://media.discordapp.net/attachments/884366779248439296/956469033358749726/received_522475212595784.jpeg?width=531&height=591)

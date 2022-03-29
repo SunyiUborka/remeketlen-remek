@@ -15,10 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('home');
 
+// Regisztráció
+
 Route::get("/register", [\App\Http\Controllers\RegisterController::class, "create"])
     ->name("register.create");
 Route::post("/register", [\App\Http\Controllers\RegisterController::class, "store"])
     ->name("register.store");
+
+// Bejelentkezés
+
 
 Route::get("/login", [\App\Http\Controllers\AuthController::class, "login"])
     ->name("auth.login");

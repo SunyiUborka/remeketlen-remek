@@ -10,4 +10,13 @@ class SiteController extends Controller
     {
         return view('welcome');
     }
+
+public function home() 
+
+{
+
+return view('dosarch.home');
+
+}
+
 }

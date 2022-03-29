@@ -11,11 +11,12 @@ class RegisterController extends Controller
 {
     public function create()
     {
-        return view("auth.register");
+        return view("auth.create");
     }
 
     public function store(RegisterStoreRequest $request)
     {
+        
         $data = $request->validated();
         $data["password"] = Hash::make($data["password"]);
         User::create($data);

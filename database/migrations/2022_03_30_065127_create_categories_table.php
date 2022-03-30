@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Categories extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,10 +14,7 @@ class Categories extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-        
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
-            $table->string('name' , 45);
-          
+            $table->string('name' , 45)->primary();
         });
     }
 

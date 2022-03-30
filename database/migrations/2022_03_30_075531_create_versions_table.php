@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class ProgramRatings extends Migration
+class CreateVersionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +14,13 @@ class ProgramRatings extends Migration
      */
     public function up()
     {
-        Schema::create('program_ratings', function (Blueprint $table) {
+        Schema::create('versions', function (Blueprint $table) {
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
             $table->foreignUuid('program_id')->constrained("programs");
             $table->foreignUuid('user_id')->constrained("users");
-            $table->integer('rate');
+            $table->string('version_number' , 45);
+            $table->date("release_date");        
+            $table->timestamps();
         });
     }
 
@@ -27,6 +31,6 @@ class ProgramRatings extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('program_ratings');
+        Schema::dropIfExists('versions');
     }
 }

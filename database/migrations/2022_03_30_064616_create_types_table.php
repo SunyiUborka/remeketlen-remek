@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class Threads extends Migration
+class CreateTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +14,9 @@ class Threads extends Migration
      */
     public function up()
     {
-        Schema::create('threads', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
-            $table->foreignUuid('program_id')->constrained("programs");
-            $table->timestamps();
-            $table->longtext('description');
+        Schema::create('types', function (Blueprint $table) {
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+            $table->string('name');
         });
     }
 
@@ -28,6 +27,6 @@ class Threads extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("threads");
+        Schema::dropIfExists('types');
     }
 }

@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class Comments extends Migration
+class CreateCommentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +14,12 @@ class Comments extends Migration
      */
     public function up()
     {
-        
             Schema::create('comments', function (Blueprint $table) {
-                $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+                $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
                 $table->foreignUuid('post_id')->constrained("posts");
                 $table->foreignUuid('user_id')->constrained("users");
                 $table->longtext('text' , 45);        
                 $table->timestamps();
-                
-    
-    
-              //  $table->foreign('type_id')->references("name")->on("types");
             });
     }
 

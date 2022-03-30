@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class Versions extends Migration
+class CreateProgramCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class Versions extends Migration
      */
     public function up()
     {
-        Schema::create('versions', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+        Schema::create('prog_cats', function (Blueprint $table) {
             $table->foreignUuid('program_id')->constrained("programs");
-            $table->foreignUuid('user_id')->constrained("users");
-            $table->string('version_number' , 45);
-            $table->date("release_date");        
-            $table->timestamps();
-           
+            $table->string('category_name');
+            $table->foreign('category_name')->references('name')->on('categories');
         });
     }
 
@@ -31,6 +27,6 @@ class Versions extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('versions');
+        Schema::dropIfExists('program_categories');
     }
 }

@@ -3,8 +3,9 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
-class Posts extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,15 +15,12 @@ class Posts extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
             $table->foreignUuid('thread_id')->constrained("threads");
             $table->foreignUuid('user_id')->constrained("users");
             $table->string('title' , 45);        
             $table->timestamps();
             $table->longtext('description');
-
-
-          //  $table->foreign('type_id')->references("name")->on("types");
         });
     }
 

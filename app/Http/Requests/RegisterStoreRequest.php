@@ -23,23 +23,10 @@ class RegisterStoreRequest extends FormRequest
      */
     public function rules()
     {
-/*
         return [
-
-            
-            "name" => ["required" , "unique:users"],
-            "email" => ["required" , "unique:users"], 
-            "password" => ["required" , "min:8"]
-
-        ];
-*/
-        
-        return [
-
-            "name" => ["required", "unique:users", "max:255"],
+            "username" => ["required", "unique:users", "max:16"],
             "email" => ["required", "unique:users", "max:255"],
-            "password" => ["required", "min:7", "max:255"]
+            "password" => ["required", "min:8", "max:255"]
         ];
-        
     }
 }

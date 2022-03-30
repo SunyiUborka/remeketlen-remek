@@ -14,8 +14,8 @@ class Threads extends Migration
     public function up()
     {
         Schema::create('threads', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('program_id')->constrained("programs");       
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+            $table->foreignUuid('program_id')->constrained("programs");
             $table->timestamps();
             $table->longtext('description');
         });

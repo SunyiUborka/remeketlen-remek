@@ -15,9 +15,9 @@ class Comments extends Migration
     {
         
             Schema::create('comments', function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('post_id')->constrained("posts");
-                $table->foreignId('user_id')->constrained("users");
+                $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+                $table->foreignUuid('post_id')->constrained("posts");
+                $table->foreignUuid('user_id')->constrained("users");
                 $table->longtext('text' , 45);        
                 $table->timestamps();
                 

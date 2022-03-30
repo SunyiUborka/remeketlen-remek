@@ -15,7 +15,7 @@ class Types extends Migration
     {
         Schema::create('types', function (Blueprint $table) {
            
-            $table->id();
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
             $table->string('name');
           
         });

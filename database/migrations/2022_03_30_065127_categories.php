@@ -15,7 +15,7 @@ class Categories extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
         
-            $table->id();
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
             $table->string('name' , 45);
           
         });

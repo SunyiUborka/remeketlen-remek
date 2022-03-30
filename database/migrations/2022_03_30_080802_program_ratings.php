@@ -14,9 +14,9 @@ class ProgramRatings extends Migration
     public function up()
     {
         Schema::create('program_ratings', function (Blueprint $table) {
-        $table->foreignId('program_id')->constrained("programs");
-        $table->foreignId('user_id')->constrained("users");  
-        $table->integer('rate');
+            $table->foreignUuid('program_id')->constrained("programs");
+            $table->foreignUuid('user_id')->constrained("users");
+            $table->integer('rate');
         });
     }
 

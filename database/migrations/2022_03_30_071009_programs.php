@@ -14,8 +14,8 @@ class Programs extends Migration
     public function up()
     {
         Schema::create('programs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('type_id')->constrained("types");
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+            $table->foreignUuid('type_id')->constrained("types");
             $table->string('author' , 255);
             $table->date("release_date");
             $table->string('title' , 45);        

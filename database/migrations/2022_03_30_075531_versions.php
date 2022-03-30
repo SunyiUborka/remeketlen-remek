@@ -14,9 +14,9 @@ class Versions extends Migration
     public function up()
     {
         Schema::create('versions', function (Blueprint $table) {
-
-            $table->foreignId('program_id')->constrained("programs");
-            $table->foreignId('user_id')->constrained("users");
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+            $table->foreignUuid('program_id')->constrained("programs");
+            $table->foreignUuid('user_id')->constrained("users");
             $table->string('version_number' , 45);
             $table->date("release_date");        
             $table->timestamps();

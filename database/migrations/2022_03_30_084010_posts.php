@@ -14,9 +14,9 @@ class Posts extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('thread_id')->constrained("threads");
-            $table->foreignId('user_id')->constrained("users");
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();;
+            $table->foreignUuid('thread_id')->constrained("threads");
+            $table->foreignUuid('user_id')->constrained("users");
             $table->string('title' , 45);        
             $table->timestamps();
             $table->longtext('description');

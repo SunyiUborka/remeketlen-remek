@@ -15,8 +15,8 @@ class ProgCat extends Migration
     {
         Schema::create('prog_cat', function (Blueprint $table) {
            
-            $table->foreignId('program_id')->constrained("programs");
-            $table->foreignId('category_name')->constrained("categories");
+            $table->foreignUuid('program_id')->constrained("programs");
+            $table->foreignUuid('category_name')->constrained("categories");
 
 
           //  $table->foreign('type_id')->references("name")->on("types");

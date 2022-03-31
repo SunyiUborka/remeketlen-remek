@@ -21,6 +21,7 @@ class LoginRequest extends FormRequest
      *
      * @return array
      */
+
     public function rules()
     {
         return [
@@ -28,4 +29,16 @@ class LoginRequest extends FormRequest
             "password" => ["required"]
         ];
     }
+
+    public function messages() {
+return [
+
+            'username.required' => 'A felhasználónév megadása kötelező!',
+            'password.required' => 'A jelszó megadása kötelező!',
+
+    ];
+
+    }
+
+
 }

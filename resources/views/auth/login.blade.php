@@ -2,10 +2,12 @@
 
 @section('content')
 
+
+
     {!! Form::open(['route' => 'auth.authenticate', "class" =>"is-invalid"]) !!}
     <div class="row mt-3">
         <div class="col">
-            {{Form::label('username','username')}}
+            {{Form::label('username','Felhasználónév')}}
             {{Form::text('username', $value = old('username'), $attributes = ["class"=>"form-control"])}}
         </div>
     </div>
@@ -32,7 +34,7 @@
 
     @if($errors->any)
         @foreach($errors->all() as $message)
-            <li>{{$message}}</li>
+            <li style="color:red">{{$message}}</li>
         @endforeach
     @endif
 

@@ -29,4 +29,33 @@ class RegisterStoreRequest extends FormRequest
             "password" => ["required", "min:8", "max:255"]
         ];
     }
+
+    public function messages() {
+        return [
+
+            'username.required' => 'A felhasználónév megadása kötelező!',
+                'username.unique' => 'Ilyen felhasználó név már létezik',
+                'username.max' => "Túl hosszú a felhasználónév!",
+
+
+
+
+                'email.required' => 'Az email megadása kötelező!',
+                'email.unique' => 'Evvel az e-maillel már létre van hozva fiók',
+                  'email.max' => "Hosszú ez egy e-mail címnek!",
+
+
+
+
+                'password.required' => 'A jelszó megadása kötelező!',
+                'password.max' => "Túl hosszú a jelszó!",
+                'password.min' => "A jelszónak legalább 8 karaktert kell tartalmaznia!",
+
+
+
+        ];
+
+    }
+
+
 }

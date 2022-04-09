@@ -15,13 +15,12 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
-            $table->foreignUuid('role_id')->constrained("roles");
+            $table->uuid('id')->default(DB::raw('(UUID())'))->primary(); 
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('user_image');
+            $table->string('user_image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

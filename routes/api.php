@@ -13,7 +13,19 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-
+/*
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+*/
+
+Route::get('/', [\App\Http\Controllers\ProgramController::class, 'index'])->name('dosearch.index');
+Route::get('/programs/{id}', [\App\Http\Controllers\ProgramController::class, 'view'])->name('dosearch.view');
+Route::post('/programs', [\App\Http\Controllers\ProgramController::class, 'store'])->name('dosearch.store');
+
+
+
+
+
+
+

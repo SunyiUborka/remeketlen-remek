@@ -1,9 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-
-
-
+    <div class="panel">
     {!! Form::open(['route' => 'auth.authenticate', "class" =>"is-invalid"]) !!}
     <div class="row mt-3">
         <div class="col">
@@ -37,5 +35,5 @@
             <li style="color:red">{{$message}}</li>
         @endforeach
     @endif
-
+    </div>
 @endsection

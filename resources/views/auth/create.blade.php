@@ -2,6 +2,8 @@
 
 
 @section('content')
+    <div class="panel">
+
     {!! Form::open(['route' => 'register.store']) !!}
 
     <div class="row mt-3">
@@ -50,5 +52,5 @@
             <li>{{$message}}</li>
         @endforeach
     @endif
-
+    </div>
 @endsection

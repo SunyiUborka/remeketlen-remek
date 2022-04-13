@@ -17,19 +17,12 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        Role::create( [
-            'id' => DB::raw('(UUID())'),
-            'role'=>'User',
-            
-        ]
-           );
+        Role::create([
+            'role'=>'user'
+        ]);
 
-           Role::create( [
-            'id' => '2',
-            'role'=>'Admin',
-            
-        ]
-           );
-
+        Role::create([
+            'role'=>'admin'
+        ]);
     }
 }

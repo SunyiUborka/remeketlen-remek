@@ -15,14 +15,7 @@ class UpdateUser extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-           
-           $table->foreignUuid('role_id')->nullable()->default('2');
-     //  $table->string('role_id')->nullable()->default(DB::raw('(UUID())'));
-            
-            //->constrained("roles");
-          
-  $table->foreign('role_id')->references('id')->on('roles');
-
+            $table->foreign('role')->references('role')->on('roles');
         });
     }
 
@@ -33,6 +26,6 @@ class UpdateUser extends Migration
      */
     public function down()
     {
-        $table->dropColumn('role_id');
+
     }
 }

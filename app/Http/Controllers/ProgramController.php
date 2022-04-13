@@ -6,28 +6,23 @@ use Illuminate\Http\Request;
 
 use App\Models\Program;
 
-use App\Http\ProgramStoreRequests;
+use App\Http\Requests\ProgramStoreRequests;
 
 class ProgramController extends Controller
 {
     public function index() {
- $progamok = Program::all();
-return $progamok;
+        return Program::all();
     }
 
     public function show($id) {
-       return $progamok = Program::findOrFail($id);
-        
-            }
-public function comment() {
+       return Program::findOrFail($id);
+    }
 
-}
+    public function comment() {
 
-            public function store(ProgramStoreRequests $request) {
- 
-                $data = $request->validated();
-               Program::create($data);
+    }
 
-            }
-
+    public function store(ProgramStoreRequests $request) {
+        Program::create($request->validated());
+    }
 }

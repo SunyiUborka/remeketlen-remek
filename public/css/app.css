@@ -1,21 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
 *{
+    margin: 0;
+    color: white;
     font-family: 'Ubuntu Mono', monospace;
 }
-
 body{
     background-color: #36393f;
+}
+.navbar{
+    height: 3rem;
+    display: flex;
+    background-color: #202225;
+    margin-bottom: 2rem;
+    align-items: center;
+}
+.navbar .nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 0.5rem;
+    border-radius: 10px;
+}
+.navbar .nav-link{
+    padding: 1rem;
+    text-decoration: none;
     color: white;
 }
-
-nav{
-    margin-bottom: 2rem;
+.navbar .nav-item:hover{
+    border-bottom: white 2px solid;
+    background-color: #2f3136;
 }
-
 .panel{
-    background-color: #4a5568;
+    display: flex;
+    background-color: #2f3136;
     padding: 4rem;
     border-radius: 15px;
-    width: 50%;
+    width: 750px;
     margin: auto;
+}
+.panel input{
+    font-size: 125%;
+    padding-left: 0.5rem;
+    background-color:  #202225;
+    height: 2.5rem;
+    width: 100%;
+ }
+.panel .form-item{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+form{
+    width: 100%;
+}
+input{
+    width: 75%;
+    height: 2rem;
+    border-radius: 8px;
+    border: none;
+}
+label{
+    margin-bottom: 0.5rem;
 }

@@ -5,23 +5,18 @@
     <div class="panel">
 
     {!! Form::open(['route' => 'register.store']) !!}
-
-    <div class="row mt-3">
-        <div class="col">
+        <h1>Regisztráció</h1>
+        <div class="form-item">
             {{Form::label('username','Név')}}
             {{Form::text('username', $value = old('username'), $attributes = ["class"=>"form-control"])}}
-
         </div>
-    </div>
 
-    <div class="row mt-3">
-        <div class="col">
+        <div class="form-item">
             {{Form::label('email','Email')}}
             {{Form::email('email', $value = old('email'), $attributes = ["class"=>"form-control"])}}
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
+
+        <div class="form-item">
             {{Form::label('password',"Jelszó")}}
 
             @error('password')
@@ -33,18 +28,15 @@
                 {{Form::password('password', ['class' => 'form-control'])}}
                 @enderror
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col">
+        <div class="form-item">
             {{Form::label('password_confirmation',"Jelszó újra")}}
             {{Form::password('password_confirmation', ['class' => 'form-control'])}}
         </div>
-    </div>
-    <div class="row mt-3">
+
         <div class="col">
             {{Form::submit('Regisztráció', ['class' => 'btn btn-primary'])}}
         </div>
-    </div>
+
     {!! Form::close() !!}
 
     @if($errors->any)

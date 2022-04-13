@@ -1,21 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{route('home')}}">DosArc</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('home')}}">Főoldal</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('auth.login')}}">Belépés</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('register.create')}}">Regisztráció</a>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar">
+    <div class="nav-item">
+        <a href="{{route('home')}}" class="nav-link">Kezdőlap</a>
+    </div>
+    <div class="nav-item">
+        <a href="{{route('auth.login')}}" class="nav-link">Belépés</a>
+    </div>
+    <div class="nav-item">
+        <a href="{{route('register.create')}}" class="nav-link">Regisztráció</a>
     </div>
 </nav>

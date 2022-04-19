@@ -1,22 +1,32 @@
-<?php
+<nav class="navbar">
+    <div class="nav-item">
+        <a href="{{route('home')}}" class="nav-link">Kezdőlap</a>
+    </div>
+    @can('create-belep')
+    <div class="nav-item">
+        <a href="{{route('dosearch.home')}}" class="nav-link">Dos Programok</a>
+    </div>
+    @endcan
 
-namespace App\Http\Controllers;
+    
+    @auth
 
-use Illuminate\Http\Request;
+    Üdv {{Illuminate\Support\Facades\Auth::user()->username;}}
+   <!-- <a href class="btn btn-light" type="button">Kijelentkezés</a> -->
+   
+    <form class="form-inline" action="{{route('auth.logout')}}" method="POST">
+   @csrf
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Kijelentkezés</button>
+    </form>
 
-class SiteController extends Controller
-{
-    public function index()
-    {
-        return view('welcome');
-    }
 
-public function home() 
+    @else
+    <div class="nav-item">
+        <a href="{{route('auth.login')}}" class="nav-link">Belépés</a>
+    </div>
+    <div class="nav-item">
+        <a href="{{route('register.create')}}" class="nav-link">Regisztráció</a>
+    </div>
 
-{
-
-return view('dosarch.home');
-
-}
-
-}
+    @endauth
+</nav>

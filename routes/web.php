@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('home');
 
+// Oldalak
+
+Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])->name('dosearch.home');
+
 // Regisztráció
 
 Route::get("/register", [\App\Http\Controllers\RegisterController::class, "create"])

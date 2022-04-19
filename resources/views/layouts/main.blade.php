@@ -12,6 +12,6 @@
 <div class="container">
     @yield('content', 'Something went wrong!')
 </div>
-
+@yield('innerjs')
 </body>
 </html>

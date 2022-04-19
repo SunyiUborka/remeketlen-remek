@@ -9,4 +9,11 @@ class Type extends Model
 {
     protected $primaryKey = "name";
     protected $fillable = ['name'];
+    public $timestamps = false;
+
+    public function programs() {
+        return HasMany(Program::class , 'program_id');
+        
+        }
+
 }

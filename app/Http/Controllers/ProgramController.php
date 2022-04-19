@@ -18,8 +18,8 @@ class ProgramController extends Controller
        return Program::findOrFail($id);
     }
 
-    public function comment() {
-
+    public function comment($id) {
+ return Program::findOrFail($id);
     }
 
     public function store(ProgramStoreRequests $request) {

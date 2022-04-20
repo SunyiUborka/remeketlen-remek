@@ -1,32 +1,31 @@
-<nav class="navbar">
-    <div class="nav-item">
-        <a href="{{route('home')}}" class="nav-link">Kezdőlap</a>
-    </div>
-    @can('create-belep')
-    <div class="nav-item">
-        <a href="{{route('dosearch.home')}}" class="nav-link">Dos Programok</a>
-    </div>
-    @endcan
+<?php
 
-    
-    @auth
+namespace App\Http\Controllers;
 
-    Üdv {{Illuminate\Support\Facades\Auth::user()->username;}}
-   <!-- <a href class="btn btn-light" type="button">Kijelentkezés</a> -->
-   
-    <form class="form-inline" action="{{route('auth.logout')}}" method="POST">
-   @csrf
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Kijelentkezés</button>
-    </form>
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+
+class SiteController extends Controller
+{
 
 
-    @else
-    <div class="nav-item">
-        <a href="{{route('auth.login')}}" class="nav-link">Belépés</a>
-    </div>
-    <div class="nav-item">
-        <a href="{{route('register.create')}}" class="nav-link">Regisztráció</a>
-    </div>
+    public function index()
+    {
+ 
+        return view('welcome');
+    }
 
-    @endauth
-</nav>
+// fv  
+
+
+
+public function home() 
+
+{
+    Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
+return view('dosarch.home');
+
+}
+
+}
+

@@ -11,8 +11,14 @@ class Thread extends Model
 
 
     public function program() {
-        return BelongsTo(Program::class , 'prog_cat');
+        return BelongsTo(Program::class);
         
         }
+
+
+        public function posts() {
+            return HasMany(Post::class , 'thread_id');
+            
+            }
 
 }

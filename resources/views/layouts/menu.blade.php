@@ -26,7 +26,7 @@
     
     @auth
 
-    Üdv {{Illuminate\Support\Facades\Auth::user()->username;}}
+    Üdv {{Illuminate\Support\Facades\Auth::user()->username}}
    <!-- <a href class="btn btn-light" type="button">Kijelentkezés</a> -->
    
     <form class="form-inline" action="{{route('auth.logout')}}" method="POST">

@@ -15,7 +15,7 @@
         @else
             <li>
                 <div class="file">
-                    {!! Form::open(['route' => '#', "class" =>"is-invalid" , 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'auth.register', "class" =>"is-invalid" , 'method' => 'post']) !!}
 
 
                     <div class="form-item">
@@ -24,8 +24,6 @@
                     <div class="form-item">
                         {{ Form::file('stock_image', ['multiple' => true]) }}
                     </div>
-
-
 
                     <div class="form-item">
                         {{Form::submit('Kép feltöltése', ['class' => 'btn btn-primary'])}}

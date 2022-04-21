@@ -24,7 +24,7 @@ class RegisterController extends Controller
 
             User::create($data);
             $request->session()->flash("succes", "Sikeres regisztráció");
-            return redirect()->route("home");
+            return redirect()->route("auth.login");
 
     }
 

@@ -47,7 +47,8 @@ return view('dosarch.home');
 
     public function datasheet() {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        return view('dosarch.data');
+        return view('dosarch.datasheet');
+
     }
 
 

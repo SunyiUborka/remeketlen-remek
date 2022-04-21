@@ -18,6 +18,11 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('h
 // Oldalak
 
 Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])->name('dosearch.home');
+Route::get('/show/{id}', [\App\Http\Controllers\SiteController::class, 'show'])->name('dosearch.show');
+Route::get('/feltolt', [\App\Http\Controllers\SiteController::class, 'upload'])->name('dosearch.upload');
+Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])->name('dosearch.forum');
+Route::get('/datasheet', [\App\Http\Controllers\SiteController::class, 'forum'])->name('dosearch.datasheet');
+
 
 // Regisztráció
 

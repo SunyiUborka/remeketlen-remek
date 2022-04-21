@@ -6,7 +6,22 @@
     <div class="nav-item">
         <a href="{{route('dosearch.home')}}" class="nav-link">Dos Programok</a>
     </div>
+
+        <div class="nav-item">
+            <a href="{{route('dosearch.upload')}}" class="nav-link">Dos Program feltöltése</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="{{route('dosearch.forum')}}" class="nav-link">Fórum</a>
+        </div>
+
+        <div class="nav-item">
+            <a href="{{route('dosearch.datasheet')}}" class="nav-link">Adatlapom</a>
+        </div>
+
+
     @endcan
+
 
     
     @auth

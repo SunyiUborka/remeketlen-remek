@@ -20,7 +20,7 @@ class ProgramSeeder extends Seeder
         
         Program::create([
             
-            'type_id' => '9c10f5b7-c0d7-11ec-a447-0242ac120004',
+            'type_id' => '37f2d6ac-c131-11ec-b3a7-0242ac120003',
             'title'=>'Cat Mario',
             'author' => 'bárki',
             'release_date' => '1976-03-04',

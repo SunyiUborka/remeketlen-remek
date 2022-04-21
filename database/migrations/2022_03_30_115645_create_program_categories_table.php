@@ -13,7 +13,7 @@ class CreateProgramCategoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('prog_cats', function (Blueprint $table) {
+        Schema::create('program_categories', function (Blueprint $table) {
             $table->foreignUuid('program_id')->constrained("programs");
             $table->string('category_name');
             $table->foreign('category_name')->references('name')->on('categories');

@@ -13,7 +13,9 @@ class Category extends Model
 
     public function programs() {
         return BelongsToMany(Program::class , 'program_categories');
-        
+
+
+
         }
 
 }

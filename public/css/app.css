@@ -63,3 +63,10 @@ input{
 label{
     margin-bottom: 0.5rem;
 }
+
+
+.invalid-feedback {
+
+    color: red;
+
+}

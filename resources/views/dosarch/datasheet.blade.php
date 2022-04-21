@@ -13,16 +13,34 @@
             <li>Kép: {{Illuminate\Support\Facades\Auth::user()->user_image}}</li>
 
         @else
-            <li>Kép feltöltése</li>
+            <li>
+                <div class="file">
+                    {!! Form::open(['route' => 'auth.register', "class" =>"is-invalid" , 'method' => 'post']) !!}
+
+
+                    <div class="form-item">
+                        {{Form::label('image',"Kép feltöltése")}}
+                    </div>
+                    <div class="form-item">
+                        {{ Form::file('stock_image', ['multiple' => true]) }}
+                    </div>
+
+                    <div class="form-item">
+                        {{Form::submit('Kép feltöltése', ['class' => 'btn btn-primary'])}}
+                    </div>
+            {!! Form::close() !!}
+                    </div>
+
+
+            </li>
+
 
 
         @endif
         <li>Videók:
             <ul>
 
-                @foreach (Illuminate\Support\Facades\Auth::user()->programs as $programok)
-                    <li>  {{$programok->version_number}}</li>
-                @endforeach
+
             </ul>
         </li>
     </ul>

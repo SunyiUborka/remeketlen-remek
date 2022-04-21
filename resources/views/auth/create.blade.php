@@ -8,10 +8,21 @@
             <div class="form-item">
                 {{Form::label('username','Felhasználónév')}}
                 {{Form::text('username', $value = old('username'), $attributes = ["class"=>"form-control"])}}
+                @error('username')
+                <div id="usernameFeedBack" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-item">
                 {{Form::label('email','Email')}}
+
                 {{Form::email('email', $value = old('email'), $attributes = ["class"=>"form-control"])}}
+                @error('email')
+                <div id="emailFeedBack" class="invalid-feedback">
+                    {{ $message }}
+                </div>
+                @enderror
             </div>
             <div class="form-item">
                 {{Form::label('password',"Jelszó")}}

@@ -23,10 +23,12 @@ class RegisterStoreRequest extends FormRequest
      */
     public function rules()
     {
+
+
         return [
             "username" => ["required", "unique:users", "max:16"],
             "email" => ["required", "unique:users", "max:255"],
-            "password" => ["required", "min:8", "max:255"]
+            "password" => ["required", "min:8", "max:255" , "confirmed"]
         ];
     }
 
@@ -50,6 +52,7 @@ class RegisterStoreRequest extends FormRequest
                 'password.required' => 'A jelszó megadása kötelező!',
                 'password.max' => "Túl hosszú a jelszó!",
                 'password.min' => "A jelszónak legalább 8 karaktert kell tartalmaznia!",
+               'password.confirmed' => "A két jelszó nem egyezik"
 
 
 

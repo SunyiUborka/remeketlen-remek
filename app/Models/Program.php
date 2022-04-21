@@ -10,27 +10,26 @@ class Program extends Model
     protected $fillable = ['type_id' , 'author' , 'release_date' , 'title' , 'description'];
   
 public function tipus() {
-    return BelongsTo(Type::class);
+    return $this->belongsTo(Type::class);
 }
 
 
 public function categories() {
-return BelongsToMany(Category::class , 'program_categories');
-
+return $this->belongsToMany(Category::class , 'program_categories');
 }
 
 public function version() {
-    return HasMany(Version::class , 'program_id');
+    return $this->hasMany(Version::class , 'program_id');
 }
      
 
 public function maker() {
-    return BelongsToMany(User::class , 'program_ratings');
+    return $this->belongsToMany(User::class , 'program_ratings');
 }
 
 public function therads() {
 
-return HasMany(Version::class , 'program_id');
+return $this->hasMany(Version::class , 'program_id');
 
 }
 

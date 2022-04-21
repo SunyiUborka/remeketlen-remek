@@ -19,7 +19,6 @@ class ProgramCategorySeeder extends Seeder
     {
         Program::find('017ed721-bfe4-11ec-b117-0242ac1d0004')->categories()->sync([
        'category_name' => ['Rage game' , 'harcos'],
-            
         ]);
     }
 }

@@ -15,7 +15,7 @@
         @else
             <li>
                 <div class="file">
-                    {!! Form::open(['route' => 'auth.register', "class" =>"is-invalid" , 'method' => 'post']) !!}
+                    {!! Form::open(['route' => 'register.store', "class" =>"is-invalid" , 'method' => 'pust']) !!}
 
 
                     <div class="form-item">

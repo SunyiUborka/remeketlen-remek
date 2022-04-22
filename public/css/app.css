@@ -41,6 +41,7 @@ input{
 }
 .panel{
     display: flex;
+    flex-wrap: wrap;
     background-color: #2f3136;
     padding: 3rem;
     border-radius: 15px;
@@ -70,6 +71,9 @@ input{
 }
 .auth-label{
     margin-bottom: 0.5rem;
+}
+.btn:hover{
+    background-color: #36393f;
 }
 .card-text{
     margin: 1rem;
@@ -104,5 +108,7 @@ input{
     opacity: 0.75;
 }
 .invalid-feedback {
+
     color: red;
+
 }

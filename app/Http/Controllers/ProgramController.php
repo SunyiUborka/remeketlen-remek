@@ -27,6 +27,11 @@ class ProgramController extends Controller
         Program::create($request->validated());
     }
 
+    public function update(ProgramStoreRequests $request , $id) {
+        Program::update($request->validated());
+    }
+
+
     public function destroy($id) {
         Program::delete($id);
     }

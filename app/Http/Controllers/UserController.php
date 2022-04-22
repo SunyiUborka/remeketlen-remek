@@ -11,7 +11,7 @@ class UserController extends Controller
 
     public function index()
     {
-        User::all();
+        return User::all();
     }
 
     public function store(Request $request)

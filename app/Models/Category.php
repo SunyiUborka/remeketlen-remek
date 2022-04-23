@@ -9,4 +9,13 @@ class Category extends Model
 {
     protected $primaryKey = "name";
     protected $fillable = ['name'];
+    public $timestamps = false;
+
+    public function programs() {
+        return BelongsToMany(Program::class , 'program_categories');
+
+
+
+        }
+
 }

@@ -7,5 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Version extends Model
 {
-    use HasFactory;
+
+    public function program() {
+        return BelgonsTo(Program::class);
+    }
+
+public function uploader() {
+    return BelongsTo(User::class);
+}
+
 }

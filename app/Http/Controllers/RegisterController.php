@@ -18,9 +18,17 @@ class RegisterController extends Controller
         $data = $request->validated();
         $data["password"] = Hash::make($data["password"]);
         // $data['role_id'] = DB::raw('(UUID())');
-        User::create($data);
-        $request->session()->flash("succes", "Sikeres regisztráció");
 
-        return redirect()->route("home");
+
+
+
+            User::create($data);
+            $request->session()->flash("succes", "Sikeres regisztráció");
+            return redirect()->route("auth.login");
+
     }
+
+
+
+
 }

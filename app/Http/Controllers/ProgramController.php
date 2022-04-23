@@ -11,6 +11,7 @@ use App\Http\Requests\ProgramStoreRequests;
 class ProgramController extends Controller
 {
     public function index() {
+      
         return Program::all();
     }
 
@@ -18,11 +19,22 @@ class ProgramController extends Controller
        return Program::findOrFail($id);
     }
 
-    public function comment() {
-
+    public function comment($id) {
+ return Program::findOrFail($id);
     }
 
     public function store(ProgramStoreRequests $request) {
         Program::create($request->validated());
     }
+
+    public function update(ProgramStoreRequests $request , $id) {
+        Program::update($request->validated());
+    }
+
+
+    public function destroy($id) {
+        Program::delete($id);
+    }
+
+
 }

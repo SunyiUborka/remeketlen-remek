@@ -8,7 +8,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('dosarch.home');
     }
 
 public function home() 

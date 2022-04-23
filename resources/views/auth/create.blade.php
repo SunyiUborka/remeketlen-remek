@@ -3,33 +3,33 @@
 
 @section('content')
     <div class="panel">
-        {!! Form::open(['route' => 'register.store']) !!}
+        {!! Form::open(['route' => 'register.store', 'class' => "auth-form"]) !!}
             <h1>Regisztráció</h1>
             <div class="form-item">
-                {{Form::label('username','Felhasználónév')}}
-                {{Form::text('username', $value = old('username'), $attributes = ["class"=>"form-control"])}}
+                {{Form::label('username','Felhasználónév', ['class' => 'auth-label'])}}
+                {{Form::text('username', $value = old('username'), $attributes = ["class"=>"auth-input"])}}
             </div>
             <div class="form-item">
-                {{Form::label('email','Email')}}
-                {{Form::email('email', $value = old('email'), $attributes = ["class"=>"form-control"])}}
+                {{Form::label('email','Email', ['class' => 'auth-label'])}}
+                {{Form::email('email', $value = old('email'), $attributes = ["class"=>"auth-input"])}}
             </div>
             <div class="form-item">
-                {{Form::label('password',"Jelszó")}}
+                {{Form::label('password',"Jelszó", ['class' => 'auth-label'])}}
                 @error('password')
-                    {{Form::password('password', ['class' => 'form-control is-invalid'])}}
+                    {{Form::password('password', ['class' => 'auth-input is-invalid'])}}
                     <div id="passwordFeedback" class="invalid-feedback">
                         {{ $message }}
                     </div>
                 @else
-                    {{Form::password('password', ['class' => 'form-control'])}}
+                    {{Form::password('password', ['class' => 'auth-input'])}}
                 @enderror
             </div>
             <div class="form-item">
-                {{Form::label('password_confirmation',"Jelszó újra")}}
-                {{Form::password('password_confirmation', ['class' => 'form-control'])}}
+                {{Form::label('password_confirmation',"Jelszó újra", ['class' => 'auth-label'])}}
+                {{Form::password('password_confirmation', ['class' => 'auth-input'])}}
             </div>
             <div class="form-item">
-                {{Form::submit('Regisztráció', ['class' => 'btn btn-primary'])}}
+                {{Form::submit('Regisztráció', ['class' => 'auth-input'])}}
             </div>
         {!! Form::close() !!}
         @if($errors->any)

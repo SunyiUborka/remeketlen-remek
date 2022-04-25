@@ -16,6 +16,7 @@ class TypeSeeder extends Seeder
     public function run()
     {
         Type::create([
+            'id' => '37f2d6ac-c131-11ec-b3a7-0242ac120003',
             'name'=>'Mario'
         ]);
 

@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            ProgramCategorySeeder::class,
-            ProgramCategoriesSeeder::class,
-            RoleSeeder::class,
-            CategorySeeder::class,
-            ProgramSeeder::class,
             TypeSeeder::class,
+            CategorySeeder::class,
+            //ProgramCategorySeeder::class,
+            //ProgramCategoriesSeeder::class,
+            RoleSeeder::class,
+            UserSeeder::class,
+            ProgramSeeder::class,
             VersionSeeder::class,
-
         ]);
     }
 }

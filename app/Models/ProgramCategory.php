@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProgramCategory extends Model
 {
-
+    protected $primaryKey = "name";
+    public $timestamps = false;
 }

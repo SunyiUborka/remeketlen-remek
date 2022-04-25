@@ -19,9 +19,9 @@ class CreateProgramsTable extends Migration
             $table->foreignUuid('type_id')->constrained("types");
             $table->string('author' , 255);
             $table->date("release_date");
-            $table->string('title' , 45);        
-            $table->timestamps();
+            $table->string('title' , 45);
             $table->longtext('description');
+            $table->timestamps();
         });
     }
     

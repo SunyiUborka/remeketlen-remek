@@ -71,8 +71,6 @@ input{
 .auth-label{
     margin-bottom: 0.5rem;
 }
-
-<<<<<<< HEAD
 .card-text{
     margin: 1rem;
 }
@@ -98,17 +96,13 @@ input{
     background-color: black;
     height: 10rem;
 }
-.card-img{
+.card-img {
     border-radius: 15px 15px 0 0;
     object-fit: cover;
     width: 100%;
     height: 10rem;
     opacity: 0.75;
-=======
-
+}
 .invalid-feedback {
-
     color: red;
-
->>>>>>> e895a7cdfc2098f83aeae4725b868ac938e73d56
 }

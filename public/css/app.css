@@ -96,7 +96,7 @@ input{
     background-color: black;
     height: 10rem;
 }
-.card-img {
+.card-img{
     border-radius: 15px 15px 0 0;
     object-fit: cover;
     width: 100%;

@@ -25,6 +25,7 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Type::create($request->validated());
     }
 
@@ -48,6 +49,7 @@ class TypeController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Type::update($request->validate());
     }
 
@@ -59,6 +61,7 @@ class TypeController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Type::delete($id);
     }
 }

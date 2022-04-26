@@ -25,6 +25,7 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Thread::create($request->validated());
     }
 
@@ -36,6 +37,7 @@ class ThreadController extends Controller
      */
     public function show($id)
     {
+       
         return Thread::findOrFail($id);
     }
 
@@ -48,6 +50,7 @@ class ThreadController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Thread::update($request->validate());
     }
 
@@ -59,6 +62,7 @@ class ThreadController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Thread::delete($id);
     }
 }

@@ -48,6 +48,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Post::update($request->validate());
     }
 
@@ -59,6 +60,7 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Post::delete($id);
     }
 }

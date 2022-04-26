@@ -48,6 +48,7 @@ class ProgramRatingController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         ProgramRating::update($request->validate());
     }
 
@@ -59,6 +60,7 @@ class ProgramRatingController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         ProgramRating::delete($id);
     }
 }

@@ -26,6 +26,7 @@ class VersionController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Version::create($request->validated());
     }
 
@@ -49,6 +50,7 @@ class VersionController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Version::update($request->validate());
     }
 
@@ -60,6 +62,7 @@ class VersionController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
        Version::destroy($id);
     }
 }

@@ -27,6 +27,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Comment::create($request->validated());
     }
 
@@ -50,6 +51,7 @@ class CommentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         User::update($request->validate());
     }
 
@@ -61,6 +63,7 @@ class CommentController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Comment::destroy('$id');
     }
 }

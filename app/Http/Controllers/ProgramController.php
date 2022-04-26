@@ -24,15 +24,18 @@ class ProgramController extends Controller
     }
 
     public function store(ProgramStoreRequests $request) {
+        Gate::authorize("admin-role");
         Program::create($request->validated());
     }
 
     public function update(ProgramStoreRequests $request , $id) {
+        Gate::authorize("admin-role");
         Program::update($request->validated());
     }
 
 
     public function destroy($id) {
+        Gate::authorize("admin-role");
         Program::delete($id);
     }
 

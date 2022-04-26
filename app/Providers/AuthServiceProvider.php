@@ -24,6 +24,13 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
+
+public function admins() {
+return Gate::authorize("admin-role");
+
+}
+
+
     public function boot()
     {
         $this->registerPolicies();
@@ -33,7 +40,7 @@ class AuthServiceProvider extends ServiceProvider
        
 
            
-           if ($user->role == "user") {
+           if ($user->role == "user" || $user->role == "admin") {
 
 return Response::allow();
        } else {
@@ -45,6 +52,23 @@ return Response::allow();
 
        }
     });
+
+    Gate::define("admin-role" , function(User $user) {
+        if ($user->role == "admin") {
+
+            return Response::allow();
+                   } else {
+                    
+                       return Response::deny("Nincs admin jogosultságod");
+            
+            
+                   }
+                });
+
+    
+    
+
 }
+
 }
 

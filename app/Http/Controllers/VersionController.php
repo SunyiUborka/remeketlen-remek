@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class VersionController extends Controller
 {

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Thread;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class ThreadController extends Controller
 {
@@ -25,7 +27,7 @@ class ThreadController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("create-belep");
         Thread::create($request->validated());
     }
 

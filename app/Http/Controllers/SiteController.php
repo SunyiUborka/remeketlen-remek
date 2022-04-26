@@ -14,7 +14,7 @@ class SiteController extends Controller
     public function index()
     {
       
-        Gate::authorize("admin-role");
+        
        
        
         return view('welcome');

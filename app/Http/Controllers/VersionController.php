@@ -26,7 +26,7 @@ class VersionController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("create-belep");
         Version::create($request->validated());
     }
 

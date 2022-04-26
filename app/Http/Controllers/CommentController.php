@@ -27,7 +27,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("create-belep");
         Comment::create($request->validated());
     }
 

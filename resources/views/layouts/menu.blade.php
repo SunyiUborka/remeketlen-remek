@@ -17,7 +17,7 @@
              <i class='bx bx-conversation' ></i>
              <span class="tooltip">Fórum</span>
          </a>
-         <a href="" class="nav-icon">
+         <a href="{{route('user.show')}}" class="nav-icon">
              <i class='bx bx-user'></i>
              <span class="tooltip">Profil</span>
          </a>
@@ -29,4 +29,5 @@
          {{ Form::close() }}
      </nav>
  @else
+
  @endauth

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
 use Illuminate\Auth\Access\Response;
@@ -69,7 +70,7 @@ return Response::allow();
                 Gate::define("author-role" , function(User $user) {
                     if ($user->role == "admin" 
                     &&
-                     $user->username == Illuminate\Support\Facades\Auth::user()->username) {
+                     $user->username == Auth::user()->username) {
             
                         return Response::allow();
                                } else {

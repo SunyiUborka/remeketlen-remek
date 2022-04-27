@@ -12,15 +12,13 @@
         <div class="alert alert-success my-2">{{ Session::get('success') }}</div>
     @endif
 
-  
+
 
 @include('layouts.menu')
 <div class="container">
     @yield('content', 'Something went wrong!')
 </div>
-@if(Session::has('danger'))
-        <div class="alert alert-success my-2">{{ Session::get('danger') }}</div>
-    @endif
+
 
 @yield('innerjs')
 </body>

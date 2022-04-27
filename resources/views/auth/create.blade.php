@@ -41,9 +41,4 @@
                 {{Form::submit('Regisztráció', ['class' => 'auth-input'])}}
             </div>
         {!! Form::close() !!}
-        @if($errors->any)
-            @foreach($errors->all() as $message)
-                <li>{{$message}}</li>
-            @endforeach
-        @endif
 @endsection

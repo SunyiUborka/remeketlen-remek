@@ -17,14 +17,21 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('h
 
 // Oldalak
 
-Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])->name('dosearch.home');
-Route::get('/show/{id}', [\App\Http\Controllers\SiteController::class, 'show'])->name('dosearch.show');
-Route::get('/feltolt', [\App\Http\Controllers\SiteController::class, 'upload'])->name('dosearch.upload');
-Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])->name('dosearch.forum');
-Route::get('/datasheet', [\App\Http\Controllers\SiteController::class, 'datasheet'])->name('dosearch.datasheet');
+Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])
+    ->name('dosarc.home');
+Route::get('/show/{program}', [\App\Http\Controllers\SiteController::class, 'show'])
+    ->name('dosarc.show');
+Route::get('/feltolt', [\App\Http\Controllers\SiteController::class, 'upload'])
+    ->name('dosarc.upload');
+Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])
+    ->name('dosarc.forum');
+Route::get('/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
+    ->name('user.show');
+Route::put('/profile', [\App\Http\Controllers\UserController::class, 'update'])
+    ->name('user.update');
 Route::get('/dosarch/filestore', [\App\Http\Controllers\VersionController::class, 'programcreate']);
-Route::post('/dosarch', [\App\Http\Controllers\VersionController::class, 'programstore'])->name('dosarch.store');
-
+Route::post('/dosarc', [\App\Http\Controllers\VersionController::class, 'programstore'])
+    ->name('dosarc.store');
 
 // Regisztráció
 
@@ -35,9 +42,6 @@ Route::post("/register", [\App\Http\Controllers\RegisterController::class, "stor
 
 // Bejelentkezés
 
-
-Route::get("/login", [\App\Http\Controllers\AuthController::class, "login"])
-    ->name("auth.login");
 Route::post("/login", [\App\Http\Controllers\AuthController::class, "authenticate"])
     ->name("auth.authenticate");
 Route::post("/logout", [\App\Http\Controllers\AuthController::class, "logout"])

@@ -15,21 +15,13 @@ class ProgramSeeder extends Seeder
      */
     public function run()
     {
-
-
-        
         Program::create([
             'id' => '6867ab85-c131-11ec-b3a7-0242ac120003',
-            'type_id' => '37f2d6ac-c131-11ec-b3a7-0242ac120003',
-            'title'=>'Cat Mario',
+            'type_name' => 'Játék',
+            'name'=>'Cat Mario',
             'author' => 'bárki',
             'release_date' => '1976-03-04',
             'description' => 'Egy kis Rage'
-             
-
         ]);
-
-
-        
     }
 }

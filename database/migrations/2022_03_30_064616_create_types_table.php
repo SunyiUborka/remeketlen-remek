@@ -15,8 +15,7 @@ class CreateTypesTable extends Migration
     public function up()
     {
         Schema::create('types', function (Blueprint $table) {
-            $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
-            $table->string('name');
+            $table->string('name')->primary();
         });
     }
 

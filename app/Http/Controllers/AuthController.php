@@ -8,11 +8,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
-    public function login()
-    {
-        return view("auth.login");
-    }
-
     public function authenticate(LoginRequest $request)
     {
         $data = $request->validated();
@@ -21,7 +16,6 @@ class AuthController extends Controller
             $request->session()->flash("danger", "Hibás felhasználónév vagy jelszó");
             return redirect()->route('auth.login');
         }
-        $request->session()->flash("success", "Sikeres bejelentkezés");
         return redirect()->route("home");
     }
 

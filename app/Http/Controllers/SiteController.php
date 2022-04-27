@@ -9,51 +9,39 @@ use App\Providers\AuthServiceProvider;
 
 class SiteController extends Controller
 {
-
-
     public function index()
     {
-      
-        
-       
-       
         return view('welcome');
     }
 
-// fv  
-
-
-
-public function home() 
-
-{
-    Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-return view('dosarch.home');
-
-}
-
-
-    public function show($id) {
+    public function home()
+    {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        return view('dosarch.show');
+        return view('dosarc.home');
+    }
+
+    public function show(Program $program) {
+        Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
+        //$data = Program::findOrFail($id);
+        return view('dosarc.show', [
+            'data' => $program,
+            'title' => $program['name']
+        ]);
     }
 
     public function upload() {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        return view('dosarch.upload');
+        return view('dosarc.upload');
     }
 
     public function forum() {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        return view('dosarch.forum');
-    // AuthServiceProvider::admins();
+        return view('dosarc.forum');
     }
 
-
-    public function datasheet() {
+    public function profile() {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        return view('dosarch.datasheet');
-
+        return view('dosarc.profile');
     }
 }
 

@@ -29,6 +29,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Category::create($request->validated());
     }
 
@@ -52,6 +53,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Category::update($request->validate());
     }
 
@@ -63,6 +65,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Category::delete($id);
     }
 }

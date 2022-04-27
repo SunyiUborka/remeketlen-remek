@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Program;
 
 use App\Http\Requests\ProgramStoreRequests;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class ProgramController extends Controller
 {

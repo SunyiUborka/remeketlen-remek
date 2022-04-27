@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class TypeController extends Controller
 {

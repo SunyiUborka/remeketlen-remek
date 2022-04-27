@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\ProgramRating;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class ProgramRatingController extends Controller
 {

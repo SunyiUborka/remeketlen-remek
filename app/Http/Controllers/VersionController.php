@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Type;
 use App\Models\Version;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class VersionController extends Controller
 {
@@ -50,7 +52,7 @@ class VersionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("admin-author");
         Version::update($request->validate());
     }
 
@@ -62,7 +64,7 @@ class VersionController extends Controller
      */
     public function destroy($id)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("admin-author");
        Version::destroy($id);
     }
 }

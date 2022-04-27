@@ -65,7 +65,20 @@ return Response::allow();
                    }
                 });
 
-    
+ 
+                Gate::define("author-role" , function(User $user) {
+                    if ($user->role == "admin" 
+                    &&
+                     $user->username == Illuminate\Support\Facades\Auth::user()->username) {
+            
+                        return Response::allow();
+                               } else {
+                                
+                                   return Response::deny();
+                        
+                        
+                               }
+                            });   
     
 
 }

@@ -18,10 +18,10 @@ class AuthController extends Controller
         $data = $request->validated();
 
         if(!Auth::attempt($data)){
-            $request->session()->flash("danger", "Sikertelen bejelentkezés");
+            $request->session()->flash("danger", "Hibás felhasználónév vagy jelszó");
             return redirect()->route('auth.login');
         }
-        $request->session()->flash("succes", "Sikeres bejelentkezés");
+        $request->session()->flash("success", "Sikeres bejelentkezés");
         return redirect()->route("home");
     }
 

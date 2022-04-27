@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class CategoryController extends Controller
 {
@@ -27,6 +29,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+        Gate::authorize("admin-role");
         Category::create($request->validated());
     }
 
@@ -50,6 +53,7 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        Gate::authorize("admin-role");
         Category::update($request->validate());
     }
 
@@ -61,6 +65,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
+        Gate::authorize("admin-role");
         Category::delete($id);
     }
 }

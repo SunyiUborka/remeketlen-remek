@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
+use App\Providers\AuthServiceProvider;
 
 class PostController extends Controller
 {
@@ -48,7 +50,7 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("create-belep");
         Post::update($request->validate());
     }
 

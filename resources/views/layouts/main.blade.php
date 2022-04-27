@@ -16,7 +16,7 @@
 
 @include('layouts.menu')
 <div class="container">
-    @yield('content', 'Something went wrong!')
+    @yield('content', 'Valami hiba történt')
 </div>
 
 

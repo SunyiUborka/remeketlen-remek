@@ -19,18 +19,22 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])->name('h
 
 Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])
     ->name('dosarc.home');
+
 Route::get('/show/{program}', [\App\Http\Controllers\SiteController::class, 'show'])
     ->name('dosarc.show');
-Route::get('/feltolt', [\App\Http\Controllers\SiteController::class, 'upload'])
-    ->name('dosarc.upload');
+
 Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])
     ->name('dosarc.forum');
+
 Route::get('/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
     ->name('user.show');
+
 Route::put('/profile', [\App\Http\Controllers\UserController::class, 'update'])
     ->name('user.update');
-Route::get('/dosarc/filestore', [\App\Http\Controllers\SiteController::class, 'upload'])
-    ->name('dosarc.filestore');
+
+Route::get('/dosarc/upload', [\App\Http\Controllers\SiteController::class, 'upload'])
+    ->name('dosarc.upload');
+
 Route::post('/dosarc', [\App\Http\Controllers\ProgramController::class, 'store'])
     ->name('dosarc.store');
 

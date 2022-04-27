@@ -1,7 +1,6 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="panel">
         {!! Form::open(['route' => 'auth.authenticate', "class" =>"is-invalid auth-form"]) !!}
             <h1>Bejelentkezés</h1>
             <div class="form-item">
@@ -34,5 +33,4 @@
                 <li style="color:red">{{$message}}</li>
             @endforeach
         @endif
-    </div>
 @endsection

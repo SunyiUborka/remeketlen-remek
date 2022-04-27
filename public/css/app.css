@@ -5,57 +5,81 @@
     font-family: 'Ubuntu Mono', monospace;
 }
 body{
+    display: flex;
+    justify-content: center;
     background-color: #36393f;
+}
+.container{
+    margin-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #2f3136;
+    padding: 1.5rem 3rem;
+    border-radius: 15px;
+    width: 55vw;
 }
 input{
     background-color: transparent;
     border: none;
 }
 .navbar{
-    height: 3rem;
-    display: flex;
-    background-color: #202225;
-    margin-bottom: 2rem;
-    align-items: center;
-}
-.navbar .nav-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: fixed;
+    left: 0;
+    top: 0;
     height: 100%;
-    margin-left: 0.5rem;
-    border-radius: 10px;
-    cursor: pointer;
-}
-.navbar .nav-link{
-    border: none;
-    background-color: transparent;
-    padding: 1rem;
-    text-decoration: none;
-    color: white;
-    cursor: pointer;
-}
-.navbar .nav-item:hover{
-    border-bottom: white 2px solid;
-    background-color: #2f3136;
-}
-.panel{
+    width: 4.5rem;
     display: flex;
-    flex-wrap: wrap;
-    background-color: #2f3136;
-    padding: 3rem;
-    border-radius: 15px;
-    width: 750px;
-    margin: auto;
+    flex-direction: column;
+    background-color: #202225;
+    align-items: center;
 }
-.panel input{
+.bx{
+    border: 2px white solid;
+    border-radius: 15px;
+    padding: 0.7rem;
+    transition: all 0.5s ease;
+}
+.bx:hover{
+    background-color: white;
+    color: #202225;
+    transition: all 0.5s ease;
+}
+.nav-icon{
+    font-size: 150%;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+.nav-icon .tooltip{
+    font-size: 65%;
+    position: absolute;
+    left: calc(100% + 0.5rem);
+    transform: translateY(75%);
+    background-color: white;
+    color: #202225;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 3;
+    white-space: nowrap;
+    pointer-events: none;
+}
+.nav-icon:hover .tooltip{
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+.container input{
     font-size: 125%;
     padding-left: 0.5rem;
-    background-color:  #202225;
+    background-color: #202225;
     height: 2.5rem;
     width: 100%;
  }
-.panel .form-item{
+.container .form-item{
     display: flex;
     flex-direction: column;
     margin: 1rem;

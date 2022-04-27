@@ -2,7 +2,6 @@
 
 
 @section('content')
-    <div class="panel">
         {!! Form::open(['route' => 'register.store', 'class' => "auth-form"]) !!}
             <h1>Regisztráció</h1>
             <div class="form-item">
@@ -47,5 +46,4 @@
                 <li>{{$message}}</li>
             @endforeach
         @endif
-    </div>
 @endsection

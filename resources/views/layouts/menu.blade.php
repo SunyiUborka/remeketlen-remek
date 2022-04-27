@@ -1,24 +1,32 @@
-<nav class="navbar">
-    @auth
-        <div class="nav-item">
-            <a href="{{route('home')}}" class="nav-link">Főoldal</a>
-        </div>
-        <div class="nav-item">
-            <div class="nav-link">
-                {{\Illuminate\Support\Facades\Auth::user()->username}}
-            </div>
-        </div>
-        <div class="nav-item">
-            {{ Form::open(['route' => 'auth.logout', 'class' => 'nav-link']) }}
-            {{Form::submit('Kijelentkezés', ['class' => ''])}}
-            {{ Form::close() }}
-        </div>
-    @else
-        <div class="nav-item">
-            <a href="{{route('auth.login')}}" class="nav-link">Belépés</a>
-        </div>
-        <div class="nav-item">
-            <a href="{{route('register.create')}}" class="nav-link">Regisztráció</a>
-        </div>
-    @endauth
-</nav>
+ @auth
+     <nav class="navbar">
+         <a href="{{route('home')}}" class="nav-icon">
+             <i class='bx bx-home' ></i>
+             <span class="tooltip">Kezdőlap</span>
+         </a>
+         <a href="" class="nav-icon">
+             <i class='bx bx-search-alt'></i>
+             <span class="tooltip">Kereső</span>
+         </a>
+
+         <a href="" class="nav-icon">
+             <i class='bx bx-upload' ></i>
+             <span class="tooltip">Feltöltés</span>
+         </a>
+         <a href="" class="nav-icon">
+             <i class='bx bx-conversation' ></i>
+             <span class="tooltip">Fórum</span>
+         </a>
+         <a href="" class="nav-icon">
+             <i class='bx bx-user'></i>
+             <span class="tooltip">Profil</span>
+         </a>
+         {{ Form::open(['route' => 'auth.logout']) }}
+             <button class="nav-icon">
+                 <i class='bx bx-power-off'></i>
+                 <span class="tooltip">Kijelentkezés</span>
+             </button>
+         {{ Form::close() }}
+     </nav>
+ @else
+ @endauth

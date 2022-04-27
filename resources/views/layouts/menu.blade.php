@@ -9,7 +9,7 @@
              <span class="tooltip">Kereső</span>
          </a>
 
-         <a href="" class="nav-icon">
+         <a href="{{route('dosarc.filestore')}}" class="nav-icon">
              <i class='bx bx-upload' ></i>
              <span class="tooltip">Feltöltés</span>
          </a>

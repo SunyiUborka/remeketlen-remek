@@ -1,27 +1,42 @@
 @extends('layouts.main')
 
 @section('content')
-    <form action="{{route("dosarch.store")}}" method="post" enctype="multipart/form-data">
-        @csrf
-        <label for="user_id">user_id</label>
-        <input type="text" name="user_id" id="user_id">
-        <label for="program_id">program_id</label>
-        <input type="text" name="program_id" id="program_id">
-        <input type="text" name="version_number" id="version_number">
-        <label for="version_number">verzió szám</label>
-        <input type="text" name="release_date" id="release_date">
-        <label for="release_date">kiadás ideje</label>
-
-        <label for="program_file">alkalmazás </label>
-        <input type="file" name="program_file" id="program_file">
-
-        <input type="submit">
-    </form>
+    {{Form::open(['route' => 'dosarc.store', 'class' => 'auth-form'])}}
+        <div class="form-item">
+            {{Form::label('name', 'Program neve', ['class' => 'auth-label'])}}
+            {{Form::text('name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('program_image', 'Program kép', ['class' => 'auth-label'])}}
+            {{Form::file('program_image', ['class' => 'auth-input'])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('author', 'Készítő', ['class' => 'auth-label'])}}
+            {{Form::text('author', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('type_name', 'Típus', ['class' => 'auth-label'])}}
+            {{Form::text('type_name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('category_name', 'Kategória', ['class' => 'auth-label'])}}
+            {{Form::text('category_name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('program_file', 'Fájl', ['class' => 'auth-label'])}}
+            {{Form::file('program_file', ['class' => 'auth-input'])}}
+        </div>
+        <div class="form-item">
+            {{Form::label('release_date', 'Megjelenés', ['class' => 'auth-label'])}}
+            {{Form::date('release_date', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
+        <div class="form-item">
+            {{Form::submit('Bejelentkezés', ['class' => 'btn auth-input'])}}
+        </div>
+    {{Form::close()}}
     @if($errors->any)
         @foreach($errors->all() as $message)
             <li>{{$message}}</li>
         @endforeach
     @endif
-
-
 @endsection

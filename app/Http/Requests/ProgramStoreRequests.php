@@ -24,12 +24,14 @@ class ProgramStoreRequests extends FormRequest
     public function rules()
     {
         return [
-          
-            'title' => ['required' , 'max:45', "unique:programs"],
-            'types' => "required",
-            'categories' => "required",
+            'name' => ['required' , 'max:45'],
+            'type_name' => "required",
+            'category_name' => "required",
+            'developer' => 'nullable',
+            'release_date' => 'nullable',
             'program_image' => "required",
-
+            'program_file' => 'required',
+            'description' => 'nullable'
         ];
 
 

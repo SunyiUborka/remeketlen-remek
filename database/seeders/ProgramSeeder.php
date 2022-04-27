@@ -17,10 +17,11 @@ class ProgramSeeder extends Seeder
     {
         Program::create([
             'id' => '6867ab85-c131-11ec-b3a7-0242ac120003',
+            'user_id' => 'a48f1d3d-c131-11ec-b3a7-0242ac120003',
             'type_name' => 'Játék',
-            'name'=>'Cat Mario',
-            'author' => 'bárki',
-            'release_date' => '1976-03-04',
+            'name'=>'Mario',
+            'developer' => 'Nintendo',
+            'release_date' => '1981-6-9',
             'description' => 'Egy kis Rage'
         ]);
     }

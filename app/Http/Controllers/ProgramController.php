@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Version;
 use Illuminate\Http\Request;
 
 use App\Models\Program;
@@ -29,7 +28,15 @@ class ProgramController extends Controller
 
     public function store(ProgramStoreRequests $request) {
         Gate::authorize("create-belep");
-        Program::create($request->validated());
+        $adat = $request->validated();
+
+        $filename =  $adat['program_file']->store('program_file');
+        $fileimage = $adat['program_image']->store('program_image');
+
+        $adat['program_file'] = $filename;
+        $adat['program_image'] = $fileimage;
+
+        Program::create($adat);
     }
 
     public function update(ProgramStoreRequests $request , $id) {
@@ -41,17 +48,5 @@ class ProgramController extends Controller
     public function destroy($id) {
         Gate::authorize("admin-role");
         Program::delete($id);
-    }
-
-
-    public function programstoreimage(ProgramStoreRequests $requests){
-
-        $adat = $requests->validated();
-
-        $filename =  $adat['program_image']->store('program_image');
-
-        $adat['program_file'] = $filename;
-
-        $program_file = Program::create($adat);
     }
 }

@@ -16,13 +16,15 @@ class CreateProgramsTable extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
+            $table->foreignUuid('user_id')->constrained("users");
+            $table->string('name' , 45);
             $table->string('type_name');
             $table->foreign('type_name')->references('name')->on('types');
-            $table->string('name' , 45)->unique();
-            $table->string('author' , 255);
-            $table->string('program_image',255)->nullable();
+            $table->string('developer' , 255)->nullable();
             $table->date("release_date")->nullable();
-            $table->longtext('description');
+            $table->string('program_image',255)->nullable();
+            $table->string('program_file',255)->nullable();
+            $table->longtext('description')->nullable();
             $table->timestamps();
         });
     }

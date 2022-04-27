@@ -18,8 +18,9 @@ class CreateProgramsTable extends Migration
             $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
             $table->foreignUuid('type_id')->constrained("types");
             $table->string('author' , 255);
-            $table->date("release_date");
+            $table->date("release_date")->nullable();
             $table->string('title' , 45);
+            $table->string('program_image',255)->nullable();
             $table->longtext('description');
             $table->timestamps();
         });

@@ -18,8 +18,9 @@ class CreateVersionsTable extends Migration
             $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
             $table->foreignUuid('program_id')->constrained("programs");
             $table->foreignUuid('user_id')->constrained("users");
+            $table->string('program_file',255)->nullable();
             $table->string('version_number' , 45);
-            $table->date("release_date");        
+            $table->date("release_date")->nullable();
             $table->timestamps();
         });
     }

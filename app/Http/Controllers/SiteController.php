@@ -55,7 +55,5 @@ return view('dosarch.home');
         return view('dosarch.datasheet');
 
     }
-
-
 }
 

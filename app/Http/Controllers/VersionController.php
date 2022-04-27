@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProgramStoreRequests;
+use App\Http\Requests\StoreProgramVersion;
 use App\Models\Type;
 use App\Models\Version;
 use Illuminate\Http\Request;
@@ -30,8 +32,25 @@ class VersionController extends Controller
     {
         Gate::authorize("create-belep");
         Version::create($request->validated());
+
+
     }
 
+    public function programcreate(){
+        return view('dosarch.filestore');
+    }
+
+    public function programstore(StoreProgramVersion $requests){
+
+           $adat = $requests->validated();
+
+         $filename =  $adat['program_file']->store('program_files');
+
+        $adat['program_file'] = $filename;
+
+          Version::create($adat);
+
+    }
     /**
      * Display the specified resource.
      *

@@ -22,6 +22,8 @@ Route::get('/show/{id}', [\App\Http\Controllers\SiteController::class, 'show'])-
 Route::get('/feltolt', [\App\Http\Controllers\SiteController::class, 'upload'])->name('dosearch.upload');
 Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])->name('dosearch.forum');
 Route::get('/datasheet', [\App\Http\Controllers\SiteController::class, 'datasheet'])->name('dosearch.datasheet');
+Route::get('/dosarch/filestore', [\App\Http\Controllers\VersionController::class, 'programcreate']);
+Route::post('/dosarch', [\App\Http\Controllers\VersionController::class, 'programstore'])->name('dosarch.store');
 
 
 // Regisztráció

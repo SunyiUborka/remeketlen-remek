@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Version;
 use Illuminate\Http\Request;
 
 use App\Models\Program;
@@ -19,11 +20,11 @@ class ProgramController extends Controller
 
     public function show($id) {
         Gate::authorize("create-belep");
-       return Program::findOrFail($id);
+        return Program::findOrFail($id);
     }
 
     public function comment($id) {
- return Program::findOrFail($id);
+        return Program::findOrFail($id);
     }
 
     public function store(ProgramStoreRequests $request) {
@@ -43,4 +44,14 @@ class ProgramController extends Controller
     }
 
 
+    public function programstoreimage(ProgramStoreRequests $requests){
+
+        $adat = $requests->validated();
+
+        $filename =  $adat['program_image']->store('program_image');
+
+        $adat['program_file'] = $filename;
+
+        $program_file = Program::create($adat);
+    }
 }

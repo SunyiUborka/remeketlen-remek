@@ -38,4 +38,11 @@ class UserController extends Controller
         Gate::authorize("admin-role");
         User::delete($id);
     }
+
+    public function create_images(){
+
+    }
+    public function store_images(){
+
+    }
 }

@@ -18,12 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TypeSeeder::class,
             CategorySeeder::class,
-            //ProgramCategoriesSeeder::class,
             RoleSeeder::class,
-           UserSeeder::class,
+            UserSeeder::class,
             ProgramSeeder::class,
-           VersionSeeder::class,
-           ProgramCategorySeeder::class,
+            ProgramCategorySeeder::class,
         ]);
     }
 }

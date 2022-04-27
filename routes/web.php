@@ -29,8 +29,9 @@ Route::get('/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
     ->name('user.show');
 Route::put('/profile', [\App\Http\Controllers\UserController::class, 'update'])
     ->name('user.update');
-Route::get('/dosarch/filestore', [\App\Http\Controllers\VersionController::class, 'programcreate']);
-Route::post('/dosarc', [\App\Http\Controllers\VersionController::class, 'programstore'])
+Route::get('/dosarc/filestore', [\App\Http\Controllers\SiteController::class, 'upload'])
+    ->name('dosarc.filestore');
+Route::post('/dosarc', [\App\Http\Controllers\ProgramController::class, 'store'])
     ->name('dosarc.store');
 
 // Regisztráció

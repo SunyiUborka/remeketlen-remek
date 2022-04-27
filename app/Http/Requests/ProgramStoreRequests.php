@@ -35,5 +35,25 @@ class ProgramStoreRequests extends FormRequest
         ];
 
 
-    }
+ 
+}
+
+
+public function messages() {
+    return [
+
+        'name.required' => 'A név megadása kötelező!',
+            'type_name.required' => 'A típus megadása kötelező!',
+            'name.max' => "Túl hosszú a program neve, ha program több mint 45 karaktert tartalmaz",
+
+
+
+
+            'category_name.required' => 'Nem adott meg kategóriát',
+            'program_file.required' => 'Nincs feltöltve program',
+              'program_image.required' => "Nincs kép a progamhoz",
+
+   ];
+}
+
 }

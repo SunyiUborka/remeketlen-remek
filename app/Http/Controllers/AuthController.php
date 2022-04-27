@@ -14,7 +14,7 @@ class AuthController extends Controller
 
         if(!Auth::attempt($data)){
             $request->session()->flash("danger", "Hibás felhasználónév vagy jelszó");
-            return redirect()->route('auth.login');
+            return redirect()->route("home");
         }
         return redirect()->route("home");
     }

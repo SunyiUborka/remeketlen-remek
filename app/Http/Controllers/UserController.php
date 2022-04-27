@@ -31,7 +31,7 @@ class UserController extends Controller
 
     public function update(UserRequest $user)
     {
-        Gate::authorize("admin-role");
+       Gate::authorize("admin-role");
         User::update($user->validated());
     }
 

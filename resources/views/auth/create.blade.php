@@ -38,7 +38,7 @@
                 {{Form::password('password_confirmation', ['class' => 'auth-input'])}}
             </div>
             <div class="form-item">
-                {{Form::submit('Regisztráció', ['class' => 'auth-input'])}}
+                {{Form::submit('Regisztráció', ['class' => 'btn auth-input'])}}
             </div>
         {!! Form::close() !!}
 @endsection

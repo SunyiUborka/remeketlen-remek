@@ -15,7 +15,7 @@
             {{Form::password('password', ['class' => 'form-control auth-input'])}}
         </div>
         <div class="form-item">
-            {{Form::submit('Bejelentkezés', ['class' => 'auth-input'])}}
+            {{Form::submit('Bejelentkezés', ['class' => 'btn auth-input'])}}
         </div>
         {!! Form::close() !!}
         @if(Session::has('danger'))
@@ -23,6 +23,6 @@
                 {{ Session::get('danger') }}
             </div>
         @endif
-        <a class="btn" href="{{route('register.create')}}">Új felhasználó</a>
+        <a class="btn auth-input" href="{{route('register.create')}}">Új felhasználó</a>
     @endauth
 @endsection

@@ -4,6 +4,13 @@
     <div class="user-profile">
         <div class="user-image">
             <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fa%2Fac%2FNo_image_available.svg%2F1024px-No_image_available.svg.png&f=1&nofb=1" alt="">
+
+            {{Form::open()}}
+                {{Form::file('program_file')}}
+            <div class="form-item">
+                {{Form::submit('Mentés', ['class' => 'auth-input btn'])}}
+            </div>
+            {{Form::close()}}
         </div>
         <div class="user-data">
             <h1>

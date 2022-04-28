@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
+
     <div class="panel">
         <h1>Főoldal</h1>
         <div class="card">

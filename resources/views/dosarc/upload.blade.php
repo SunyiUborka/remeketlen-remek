@@ -31,7 +31,7 @@
             {{Form::date('release_date', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
         <div class="form-item">
-            {{Form::submit('Bejelentkezés', ['class' => 'btn auth-input'])}}
+            {{Form::submit('Feltöltés', ['class' => 'btn auth-input'])}}
         </div>
     {{Form::close()}}
     @if($errors->any)

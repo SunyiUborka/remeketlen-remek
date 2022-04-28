@@ -9,6 +9,9 @@ body{
     justify-content: center;
     background-color: #36393f;
 }
+h1{
+    margin-bottom: 1rem;
+}
 .container{
     margin-top: 1.5rem;
     display: flex;
@@ -84,7 +87,7 @@ input:last-child{
 .container .form-item{
     display: flex;
     flex-direction: column;
-    margin: 1rem 0;
+    margin-bottom: 1rem;
 }
 .auth-form{
     width: 100%;
@@ -102,7 +105,7 @@ input:last-child{
     justify-content: center;
     font-size: 19.5px;
     height: 2.5rem;
-    width: 100%;
+    width: 50% !important;
     text-decoration: none;
     background-color: #202225;
     cursor: pointer;
@@ -111,6 +114,11 @@ input:last-child{
 .btn:hover{
     background-color: #36393f;
     transition: all 0.5s ease;
+}
+.form-item{
+    width: 100%;
+    display: flex;
+    align-items: center;
 }
 .card-text{
     margin: 1rem;

@@ -29,4 +29,20 @@ class UserRequest extends FormRequest
             'user_image' => ['nullable']
         ];
     }
+
+    public function messages() {
+        return [
+
+
+
+
+                'password.required' => 'A jelszó megadása kötelező!',
+                'password.max' => "Túl hosszú a jelszó!",
+                'password.min' => "A jelszónak legalább 8 karaktert kell tartalmaznia!",
+               'password.confirmed' => "A két jelszó nem egyezik"
+
+
+
+        ];
+    }
 }

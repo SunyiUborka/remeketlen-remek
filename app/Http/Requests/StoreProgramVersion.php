@@ -31,4 +31,18 @@ class StoreProgramVersion extends FormRequest
             'program_file' => 'required',
         ];
     }
+    public function messages() {
+        return [
+    
+            'program_id.required' => 'Nincs megadva, hogy melyik programot szeretnénk lekérni',
+                'user_id.required' => 'Nincs felhasználó',
+                'version_number.required' => "Adjon meg egy verziószámot",
+    
+
+                'program_file.required' => 'Nincs feltöltve program',
+                  
+    
+       ];
+    }
+
 }

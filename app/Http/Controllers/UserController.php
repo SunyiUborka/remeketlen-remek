@@ -38,14 +38,7 @@ class UserController extends Controller
     public function update(UserRequest $user)
     {
         Gate::authorize("admin-role");
-
-        $data = User::findOrFail(Auth::user()->id);
-        //$data = $user->validated();
-        $fileimage = $user['user_image']->store('user_images');
-
-        $data['user_image'] = $fileimage;
-
-
+        User::update($user->validated());
     }
 
     public function destroy($id)
@@ -54,5 +47,10 @@ class UserController extends Controller
         User::delete($id);
     }
 
+    public function create_images(){
 
+    }
+    public function store_images(){
+
+    }
 }

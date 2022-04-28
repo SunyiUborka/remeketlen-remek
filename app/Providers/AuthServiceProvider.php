@@ -11,6 +11,10 @@ use Illuminate\Auth\Access\Response;
 
 class AuthServiceProvider extends ServiceProvider
 {
+
+     protected $messages = "Az oldal nem elérhető!";
+
+
     /**
      * The policy mappings for the application.
      *
@@ -25,12 +29,12 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-
+/*
 public function admins() {
 return Gate::authorize("admin-role");
 
 }
-
+*/
 
     public function boot()
     {
@@ -48,7 +52,7 @@ return Response::allow();
         
 
 
-           return Response::deny("Az oldal nem elérhrtő!");
+           return Response::deny($this->messages);
 
 
        }
@@ -60,7 +64,7 @@ return Response::allow();
             return Response::allow();
                    } else {
                     
-                       return Response::deny("Nincs admin jogosultságod");
+                       return Response::deny($this->messages);
             
             
                    }
@@ -68,21 +72,18 @@ return Response::allow();
 
  
                 Gate::define("author-role" , function(User $user) {
-                    if ($user->role == "admin" 
-                    &&
+                    if ($user->role == "admin"
+                    ||
                      $user->username == Auth::user()->username) {
-            
+
                         return Response::allow();
                                } else {
-                                
-                                   return Response::deny();
-                        
-                        
+                                   return Response::deny($this->messages);
                                }
-                            });   
-    
+                            });
 
-}
+
+    }
 
 }
 

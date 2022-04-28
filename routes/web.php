@@ -38,6 +38,12 @@ Route::get('/dosarc/upload', [\App\Http\Controllers\SiteController::class, 'uplo
 Route::post('/dosarc', [\App\Http\Controllers\ProgramController::class, 'store'])
     ->name('dosarc.store');
 
+Route::get('/dosarc/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
+    ->name('dosarc.profile');
+
+Route::post('/dosarc', [\App\Http\Controllers\UserController::class, 'store'])
+    ->name('dosarc.profilestore');
+
 // Regisztráció
 
 Route::get("/register", [\App\Http\Controllers\RegisterController::class, "create"])

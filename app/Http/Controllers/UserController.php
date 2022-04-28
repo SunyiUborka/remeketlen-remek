@@ -18,9 +18,15 @@ class UserController extends Controller
         return User::all();
     }
 
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        User::create($request->validated());
+        $adat = $request->validated();
+
+        $fileimage = $adat['user_image']->store('user_images');
+
+        $adat['user_image'] = $fileimage;
+
+        User::create($adat);
     }
 
     public function show($id)
@@ -32,7 +38,14 @@ class UserController extends Controller
     public function update(UserRequest $user)
     {
         Gate::authorize("admin-role");
-        User::update($user->validated());
+
+        $data = User::findOrFail(Auth::user()->id);
+        //$data = $user->validated();
+        $fileimage = $user['user_image']->store('user_images');
+
+        $data['user_image'] = $fileimage;
+
+
     }
 
     public function destroy($id)
@@ -41,10 +54,5 @@ class UserController extends Controller
         User::delete($id);
     }
 
-    public function create_images(){
 
-    }
-    public function store_images(){
-
-    }
 }

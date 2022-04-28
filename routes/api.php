@@ -97,17 +97,6 @@ Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'updat
 Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])
     ->name('user.destroy');
 
-Route::get('/versions', [\App\Http\Controllers\VersionController::class, 'index'])
-    ->name('version.index');
-Route::get('/versions/{version}', [\App\Http\Controllers\VersionController::class, 'show'])
-    ->name('version.show');
-Route::post('/versions', [\App\Http\Controllers\VersionController::class, 'store'])
-    ->name('version.store');
-Route::put('/versions/{version}', [\App\Http\Controllers\VersionController::class, 'update'])
-    ->name('version.update');
-Route::delete('/versions/{version}', [\App\Http\Controllers\VersionController::class, 'destroy'])
-    ->name('version.destroy');
-
 Route::get('/programs', [\App\Http\Controllers\ProgramController::class, 'index'])
     ->name('program.index');
 Route::get('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'show'])

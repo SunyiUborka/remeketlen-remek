@@ -31,13 +31,13 @@ class UserController extends Controller
 
     public function update(UserRequest $user)
     {
-       Gate::authorize("admin-role");
+     Gate::authorize("author-role");
         User::update($user->validated());
     }
 
     public function destroy($id)
     {
-        Gate::authorize("admin-role");
+        Gate::authorize("author-role");
         User::delete($id);
     }
 

@@ -29,8 +29,11 @@ Route::get('/forum', [\App\Http\Controllers\SiteController::class, 'forum'])
 Route::get('/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
     ->name('user.show');
 
-Route::put('/profile', [\App\Http\Controllers\UserController::class, 'update'])
-    ->name('user.update');
+Route::put('/profile/image', [\App\Http\Controllers\UserController::class, 'updateImage'])
+    ->name('user.update-image');
+
+Route::put('/profile/password', [\App\Http\Controllers\UserController::class, 'updatePassword'])
+    ->name('user.update-password');
 
 Route::get('/dosarc/upload', [\App\Http\Controllers\SiteController::class, 'upload'])
     ->name('dosarc.upload');
@@ -40,9 +43,6 @@ Route::post('/dosarc', [\App\Http\Controllers\ProgramController::class, 'store']
 
 Route::get('/dosarc/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
     ->name('dosarc.profile');
-
-Route::post('/dosarc', [\App\Http\Controllers\UserController::class, 'store'])
-    ->name('dosarc.profilestore');
 
 // Regisztráció
 

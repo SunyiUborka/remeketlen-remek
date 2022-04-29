@@ -52,7 +52,7 @@ return Response::allow();
         
 
 
-           return Response::deny($this->messages);
+           return Response::deny(redirect()->route('home'));
 
 
        }

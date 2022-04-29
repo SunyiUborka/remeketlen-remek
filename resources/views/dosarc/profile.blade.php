@@ -3,14 +3,15 @@
 @section('content')
     <div class="user-profile">
         <div class="user-image">
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fupload.wikimedia.org%2Fwikipedia%2Fcommons%2Fthumb%2Fa%2Fac%2FNo_image_available.svg%2F1024px-No_image_available.svg.png&f=1&nofb=1" alt="">
-            <form action="{{route('dosarc.store')}}" class="auth-form" method="put">
+            <img src="{{route('home')}}/{{\Illuminate\Support\Facades\Auth::user()->user_image}}" alt="">
+            <form action="{{route('user.update-image')}}" method="post" enctype="multipart/form-data" class="auth-form">
                 @csrf
+                @method('put')
                 <div class="form-item">
-                    <input type="file" name="program_file" id="program_file">
+                    <input type="file" class="auth-input" name="user_image">
                 </div>
                 <div class="form-item">
-                    <input type="button" class="auth-input btn" value="Mentés">
+                    <input type="submit" value="Mentés" class="auth-input btn">
                 </div>
             </form>
         </div>
@@ -18,21 +19,43 @@
             <h1>
                 {{\Illuminate\Support\Facades\Auth::user()->username}}
             </h1>
-            {{Form::open(['route' => 'user.update', 'method' => 'put', 'class' => "auth-form"])}}
-            <div class="form-item">
-                {{Form::label('old-password', 'Jelenlegi Jelszó', ['class' => 'auth-label'])}}
-                {{Form::password('old-password', ['class' => 'auth-input'])}}
-            </div>
-            <div class="form-item">
-                {{Form::label('new-password', 'Új Jelszó', ['class' => 'auth-label'])}}
-                {{Form::password('new-password', ['class' => 'auth-input'])}}
-            </div>
-            <div class="form-item">
-                {{Form::label('new-password_confirmation', 'Új Jelszó újra', ['class' => 'auth-label'])}}
-                {{Form::password('new-password_confirmation', ['class' => 'auth-input'])}}
-            </div>
-                {{Form::submit('Mentés', ['class' => 'auth-input btn'])}}
-            {{Form::close()}}
+            <form action="{{route('user.update-password')}}" method="post" class="auth-form">
+                @csrf
+                @method('put')
+                <div class="form-item">
+                    <label for="old_password" class="auth-label">Jelenlegi jelszó</label>
+                    <input required type="password" name="old_password" id="old_password" class="auth-input">
+                    @if(Session::has('bad_password'))
+                        <div class="invalid-feedback">
+                            {{Session::get('bad_password')}}
+                        </div>
+                    @endif
+                </div>
+                <div class="form-item">
+                    <label for="password" class="auth-label">Új jelszó</label>
+                    <input required type="password" name="password" id="password" class="auth-input">
+                </div>
+                <div class="form-item">
+                    <label for="password_confirmation" class="auth-label">Jelenlegi jelszó</label>
+                    <input required type="password" name="password_confirmation" id="password_confirmation" class="auth-input">
+                </div>
+                <div class="form-item">
+                    <input type="submit" class="auth-input btn" value="Mentés">
+                </div>
+            </form>
         </div>
+        @if($errors->any)
+            @foreach($errors->all() as $message)
+                <div class="invalid-feedback">
+                    {{$message}}</li>
+                </div>
+            @endforeach
+        @endif
     </div>
+@endsection
+
+@section('innerjs')
+    <script>
+
+    </script>
 @endsection

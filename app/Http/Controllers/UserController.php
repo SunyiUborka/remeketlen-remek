@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\PasswordUpdateRequest;
 use App\Http\Requests\UpdatePasswordRequest;
 use App\Http\Requests\UpdateUserImageRequest;
 use App\Http\Requests\UserRequest;
@@ -41,7 +40,6 @@ class UserController extends Controller
     public function updatePassword(UpdatePasswordRequest $request)
     {
         $data = $request->validated();
-        //Hash::check($data['old_password'], Auth::user()->getAuthPassword())
         if (!Hash::check($data['old_password'], Auth::user()->getAuthPassword())){
             $request->session()->flash('bad_password', 'Hibás a jelenlegi jelszó!');
             return redirect()->back();

@@ -13,7 +13,7 @@
              <i class='bx bx-upload' ></i>
              <span class="tooltip">Feltöltés</span>
          </a>
-         <a href="" class="nav-icon">
+         <a href="{{route('dosarc.forum')}}" class="nav-icon">
              <i class='bx bx-conversation' ></i>
              <span class="tooltip">Fórum</span>
          </a>

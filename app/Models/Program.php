@@ -9,8 +9,8 @@ class Program extends Model
 {
     public $incrementing = false;
     protected $keyType = 'string';
-    protected $fillable = ['','program_file','program_image','type_id' , 'developer' , 'release_date' , 'name' , 'description'];
-  
+    protected $fillable = ['user_id','program_file','program_image','type_name' , 'developer' , 'release_date' , 'name' , 'description'];
+
 public function tipus() {
     return $this->belongsTo(Type::class);
 }

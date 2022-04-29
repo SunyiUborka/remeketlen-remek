@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Program;
 
 use App\Http\Requests\ProgramStoreRequests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Providers\AuthServiceProvider;
 
@@ -28,15 +29,16 @@ class ProgramController extends Controller
 
     public function store(ProgramStoreRequests $request) {
         Gate::authorize("create-belep");
-        $adat = $request->validated();
+        $data = $request->validated();
+        $data['user_id'] = Auth::user()->id;
+        $filename =  $data['program_file']->store('program_file');
+        $fileimage = $data['program_image']->store('program_image');
 
-        $filename =  $adat['program_file']->store('program_file');
-        $fileimage = $adat['program_image']->store('program_image');
-
-        $adat['program_file'] = $filename;
-        $adat['program_image'] = $fileimage;
-
-        Program::create($adat);
+        $data['program_file'] = $filename;
+        $data['program_image'] = $fileimage;
+        //ddd($data);
+        Program::create($data);
+        return redirect()->back();
     }
 
     public function update(ProgramStoreRequests $request , $id) {

@@ -1,7 +1,7 @@
 @extends('layouts.main')
 
 @section('content')
-    {{Form::open(['route' => 'dosarc.store', 'class' => 'auth-form'])}}
+    {{Form::open(['route' => 'dosarc.store', 'class' => 'auth-form', 'files' => true])}}
         <div class="form-item">
             {{Form::label('name', 'Program neve', ['class' => 'auth-label'])}}
             {{Form::text('name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
@@ -11,19 +11,25 @@
             {{Form::file('program_image', ['class' => 'auth-input'])}}
         </div>
         <div class="form-item">
-            {{Form::label('author', 'Készítő', ['class' => 'auth-label'])}}
-            {{Form::text('author', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+            {{Form::label('developer', 'Készítő', ['class' => 'auth-label'])}}
+            {{Form::text('developer', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
         <div class="form-item">
-            {{Form::label('type_name', 'Típus', ['class' => 'auth-label'])}}
-            {{Form::text('type_name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+            <p>Típus</p>
+            <div class="radio-btn-group">
+                    {{Form::label('', 'Szoftver', ['class' => 'auth-label'])}}
+                    {{Form::radio('type_name', 'Szoftver', true)}}
+
+                    {{Form::label('', 'Játék', ['class' => 'auth-label'])}}
+                    {{Form::radio('type_name', 'Játék', )}}
+            </div>
         </div>
         <div class="form-item">
             {{Form::label('category_name', 'Kategória', ['class' => 'auth-label'])}}
             {{Form::text('category_name', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
         <div class="form-item">
-            {{Form::label('program_file', 'Fájl', ['class' => 'auth-label'])}}
+            {{Form::label('program_file', 'Fájl (zip)', ['class' => 'auth-label'])}}
             {{Form::file('program_file', ['class' => 'auth-input'])}}
         </div>
         <div class="form-item">
@@ -35,8 +41,10 @@
         </div>
     {{Form::close()}}
     @if($errors->any)
+        <ul>
         @foreach($errors->all() as $message)
             <li>{{$message}}</li>
         @endforeach
+        </ul>
     @endif
 @endsection

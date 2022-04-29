@@ -22,7 +22,7 @@ class CreateProgramsTable extends Migration
             $table->foreign('type_name')->references('name')->on('types');
             $table->string('developer' , 255)->nullable();
             $table->date("release_date")->nullable();
-            $table->string('program_image',255)->nullable();
+            $table->string('program_image',255)->nullable()->default("program_image/no_image.png");
             $table->string('program_file',255)->nullable();
             $table->longtext('description')->nullable();
             $table->timestamps();

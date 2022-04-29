@@ -225,3 +225,16 @@ input:last-child{
 .pagenotfound h1{
     text-align: center;
 }
+.radio-btn-group{
+
+}
+.radio-btn-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.radio-btn-group input[type = radio]{
+    margin: 0 1rem;
+    transform: translateY(-2px);
+    width: 1rem;
+}

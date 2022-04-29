@@ -1,111 +1,99 @@
 <?php
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use illuminate\http\request;
+use illuminate\support\facades\route;
 
 /*
 |--------------------------------------------------------------------------
-| API Routes
+| api routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| is assigned the "api" middleware group. Enjoy building your API!
+| here is where you can register api routes for your application. these
+| routes are loaded by the routeserviceprovider within a group which
+| is assigned the "api" middleware group. enjoy building your api!
 |
 */
 /*
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+route::middleware('auth:sanctum')->get('/user', function (request $request) {
     return $request->user();
 });
 */
 
-Route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index'])
+route::get('/categories', [\app\http\controllers\categorycontroller::class, 'index'])
     ->name('category.index');
-Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])
+route::get('/categories/{category}', [\app\http\controllers\categorycontroller::class, 'show'])
     ->name('category.show');
-Route::post('/categories', [\App\Http\Controllers\CategoryController::class, 'store'])
+route::post('/categories', [\app\http\controllers\categorycontroller::class, 'store'])
     ->name('category.store');
-Route::put('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'update'])
+route::put('/categories/{category}', [\app\http\controllers\categorycontroller::class, 'update'])
     ->name('category.update');
-Route::delete('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'destroy'])
+route::delete('/categories/{category}', [\app\http\controllers\categorycontroller::class, 'destroy'])
     ->name('category.destroy');
 
-Route::get('/comments', [\App\Http\Controllers\CommentController::class, 'index'])
+route::get('/comments', [\app\http\controllers\commentcontroller::class, 'index'])
     ->name('comment.index');
-Route::get('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'show'])
+route::get('/comments/{comment}', [\app\http\controllers\commentcontroller::class, 'show'])
     ->name('comment.show');
-Route::post('/comments', [\App\Http\Controllers\CommentController::class, 'store'])
+route::post('/comments', [\app\http\controllers\commentcontroller::class, 'store'])
     ->name('comment.store');
-Route::put('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'update'])
+route::put('/comments/{comment}', [\app\http\controllers\commentcontroller::class, 'update'])
     ->name('comment.update');
-Route::delete('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'destroy'])
+route::delete('/comments/{comment}', [\app\http\controllers\commentcontroller::class, 'destroy'])
     ->name('comment.destroy');
 
-Route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])
+route::get('/posts', [\app\http\controllers\postcontroller::class, 'index'])
     ->name('post.index');
-Route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show'])
+route::get('/posts/{post}', [\app\http\controllers\postcontroller::class, 'show'])
     ->name('post.show');
-Route::post('/posts', [\App\Http\Controllers\PostController::class, 'store'])
+route::post('/posts', [\app\http\controllers\postcontroller::class, 'store'])
     ->name('post.store');
-Route::put('/posts/{post}', [\App\Http\Controllers\PostController::class, 'update'])
+route::put('/posts/{post}', [\app\http\controllers\postcontroller::class, 'update'])
     ->name('post.update');
-Route::delete('/posts/{post}', [\App\Http\Controllers\PostController::class, 'destroy'])
+route::delete('/posts/{post}', [\app\http\controllers\postcontroller::class, 'destroy'])
     ->name('post.destroy');
 
-Route::get('/programratings', [\App\Http\Controllers\ProgramRatingController::class, 'index'])
+route::get('/programratings', [\app\http\controllers\programratingcontroller::class, 'index'])
     ->name('programrating.index');
-Route::get('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'show'])
+route::get('/programratings/{programrating}', [\app\http\controllers\programratingcontroller::class, 'show'])
     ->name('programrating.show');
-Route::post('/programratings', [\App\Http\Controllers\ProgramRatingController::class, 'store'])
+route::post('/programratings', [\app\http\controllers\programratingcontroller::class, 'store'])
     ->name('programrating.store');
-Route::put('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'update'])
+route::put('/programratings/{programrating}', [\app\http\controllers\programratingcontroller::class, 'update'])
     ->name('programrating.update');
-Route::delete('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'destroy'])
+route::delete('/programratings/{programrating}', [\app\http\controllers\programratingcontroller::class, 'destroy'])
     ->name('programrating.destroy');
 
-Route::get('/Threads', [\App\Http\Controllers\ThreadController::class, 'index'])
-    ->name('Thread.index');
-Route::get('/Threads/{Thread}', [\App\Http\Controllers\ThreadController::class, 'show'])
-    ->name('Thread.show');
-Route::post('/Threads', [\App\Http\Controllers\ThreadController::class, 'store'])
-    ->name('Thread.store');
-Route::put('/Threads/{Thread}', [\App\Http\Controllers\ThreadController::class, 'update'])
-    ->name('Thread.update');
-Route::delete('/Threads/{Thread}', [\App\Http\Controllers\ThreadController::class, 'destroy'])
-    ->name('Thread.destroy');
+route::get('/threads', [\app\http\controllers\threadcontroller::class, 'index'])
+    ->name('threads.index');
+route::get('/threads/{threads}', [\app\http\controllers\threadcontroller::class, 'show'])
+    ->name('threads.show');
+route::post('/threads', [\app\http\controllers\threadcontroller::class, 'store'])
+    ->name('threads.store');
+route::put('/threads/{threads}', [\app\http\controllers\threadcontroller::class, 'update'])
+    ->name('threads.update');
+route::delete('/threads/{threads}', [\app\http\controllers\threadcontroller::class, 'destroy'])
+    ->name('threads.destroy');
 
-Route::get('/types', [\App\Http\Controllers\TypeController::class, 'index'])
+route::get('/types', [\app\http\controllers\typecontroller::class, 'index'])
     ->name('type.index');
-Route::get('/types/{type}', [\App\Http\Controllers\TypeController::class, 'show'])
+route::get('/types/{type}', [\app\http\controllers\typecontroller::class, 'show'])
     ->name('type.show');
-Route::post('/types', [\App\Http\Controllers\TypeController::class, 'store'])
+route::post('/types', [\app\http\controllers\typecontroller::class, 'store'])
     ->name('type.store');
-Route::put('/types/{type}', [\App\Http\Controllers\TypeController::class, 'update'])
+route::put('/types/{type}', [\app\http\controllers\typecontroller::class, 'update'])
     ->name('type.update');
-Route::delete('/types/{type}', [\App\Http\Controllers\TypeController::class, 'destroy'])
+route::delete('/types/{type}', [\app\http\controllers\typecontroller::class, 'destroy'])
     ->name('type.destroy');
 
-
-Route::get('/users', [\App\Http\Controllers\UserController::class, 'index'])
-    ->name('user.index');
-Route::get('/users/{user}', [\App\Http\Controllers\UserController::class, 'show'])
-    ->name('user.show');
-Route::post('/users', [\App\Http\Controllers\UserController::class, 'store'])
-    ->name('user.store');
-Route::put('/users/{user}', [\App\Http\Controllers\UserController::class, 'update'])
-    ->name('user.update');
-Route::delete('/users/{user}', [\App\Http\Controllers\UserController::class, 'destroy'])
-    ->name('user.destroy');
-
-Route::get('/programs', [\App\Http\Controllers\ProgramController::class, 'index'])
+route::get('/programs', [\app\http\controllers\programcontroller::class, 'index'])
     ->name('program.index');
-Route::get('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'show'])
+route::get('/programs/{program}', [\app\http\controllers\programcontroller::class, 'show'])
     ->name('program.show');
-Route::post('/programs', [\App\Http\Controllers\ProgramController::class, 'store'])
+route::post('/programs', [\app\http\controllers\programcontroller::class, 'store'])
     ->name('program.store');
-Route::put('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'update'])
+route::put('/programs/{program}', [\app\http\controllers\programcontroller::class, 'update'])
     ->name('program.update');
-Route::delete('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'destroy'])
+route::delete('/programs/{program}', [\app\http\controllers\programcontroller::class, 'destroy'])
     ->name('program.destroy');
 
 

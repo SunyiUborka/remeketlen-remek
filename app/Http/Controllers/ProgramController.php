@@ -14,7 +14,6 @@ use App\Providers\AuthServiceProvider;
 class ProgramController extends Controller
 {
     public function index() {
-      
         return Program::all();
     }
 
@@ -29,15 +28,18 @@ class ProgramController extends Controller
 
     public function store(ProgramStoreRequests $request) {
         Gate::authorize("create-belep");
+
         $data = $request->validated();
-        $data['user_id'] = Auth::user()->id;
+
         $filename =  $data['program_file']->store('program_file');
         $fileimage = $data['program_image']->store('program_image');
 
+        $data['user_id'] = Auth::user()->id;
         $data['program_file'] = $filename;
         $data['program_image'] = $fileimage;
-        //ddd($data);
+
         Program::create($data);
+
         return redirect()->back();
     }
 
@@ -45,7 +47,6 @@ class ProgramController extends Controller
         Gate::authorize("admin-role");
         Program::update($request->validated());
     }
-
 
     public function destroy($id) {
         Gate::authorize("admin-role");

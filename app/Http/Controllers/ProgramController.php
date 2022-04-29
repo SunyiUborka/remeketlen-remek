@@ -18,7 +18,7 @@ class ProgramController extends Controller
     }
 
     public function show($id) {
-        Gate::authorize("create-belep");
+        //Gate::authorize("admin-role");
         return Program::findOrFail($id);
     }
 

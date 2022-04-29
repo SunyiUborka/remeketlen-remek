@@ -19,81 +19,81 @@ route::middleware('auth:sanctum')->get('/user', function (request $request) {
 });
 */
 
-route::get('/categories', [\app\http\controllers\CategoryController::class, 'index'])
+route::get('/categories', [\App\Http\Controllers\CategoryController::class, 'index'])
     ->name('category.index');
-route::get('/categories/{category}', [\app\http\controllers\CategoryController::class, 'show'])
+route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'show'])
     ->name('category.show');
-route::post('/categories', [\app\http\controllers\CategoryController::class, 'store'])
+route::post('/categories', [\App\Http\Controllers\CategoryController::class, 'store'])
     ->name('category.store');
-route::put('/categories/{category}', [\app\http\controllers\CategoryController::class, 'update'])
+route::put('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'update'])
     ->name('category.update');
-route::delete('/categories/{category}', [\app\http\controllers\CategoryController::class, 'destroy'])
+route::delete('/categories/{category}', [\App\Http\Controllers\CategoryController::class, 'destroy'])
     ->name('category.destroy');
 
-route::get('/comments', [\app\http\controllers\CommentController::class, 'index'])
+route::get('/comments', [\App\Http\Controllers\CommentController::class, 'index'])
     ->name('comment.index');
-route::get('/comments/{comment}', [\app\http\controllers\CommentController::class, 'show'])
+route::get('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'show'])
     ->name('comment.show');
-route::post('/comments', [\app\http\controllers\CommentController::class, 'store'])
+route::post('/comments', [\App\Http\Controllers\CommentController::class, 'store'])
     ->name('comment.store');
-route::put('/comments/{comment}', [\app\http\controllers\CommentController::class, 'update'])
+route::put('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'update'])
     ->name('comment.update');
-route::delete('/comments/{comment}', [\app\http\controllers\CommentController::class, 'destroy'])
+route::delete('/comments/{comment}', [\App\Http\Controllers\CommentController::class, 'destroy'])
     ->name('comment.destroy');
 
-route::get('/posts', [\app\http\controllers\PostController::class, 'index'])
+route::get('/posts', [\App\Http\Controllers\PostController::class, 'index'])
     ->name('post.index');
-route::get('/posts/{post}', [\app\http\controllers\PostController::class, 'show'])
+route::get('/posts/{post}', [\App\Http\Controllers\PostController::class, 'show'])
     ->name('post.show');
-route::post('/posts', [\app\http\controllers\PostController::class, 'store'])
+route::post('/posts', [\App\Http\Controllers\PostController::class, 'store'])
     ->name('post.store');
-route::put('/posts/{post}', [\app\http\controllers\PostController::class, 'update'])
+route::put('/posts/{post}', [\App\Http\Controllers\PostController::class, 'update'])
     ->name('post.update');
-route::delete('/posts/{post}', [\app\http\controllers\PostController::class, 'destroy'])
+route::delete('/posts/{post}', [\App\Http\Controllers\PostController::class, 'destroy'])
     ->name('post.destroy');
 
-route::get('/programratings', [\app\http\controllers\ProgramRatingController::class, 'index'])
+route::get('/programratings', [\App\Http\Controllers\ProgramRatingController::class, 'index'])
     ->name('programrating.index');
-route::get('/programratings/{programrating}', [\app\http\controllers\ProgramRatingController::class, 'show'])
+route::get('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'show'])
     ->name('programrating.show');
-route::post('/programratings', [\app\http\controllers\ProgramRatingController::class, 'store'])
+route::post('/programratings', [\App\Http\Controllers\ProgramRatingController::class, 'store'])
     ->name('programrating.store');
-route::put('/programratings/{programrating}', [\app\http\controllers\ProgramRatingController::class, 'update'])
+route::put('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'update'])
     ->name('programrating.update');
-route::delete('/programratings/{programrating}', [\app\http\controllers\ProgramRatingController::class, 'destroy'])
+route::delete('/programratings/{programrating}', [\App\Http\Controllers\ProgramRatingController::class, 'destroy'])
     ->name('programrating.destroy');
 
-route::get('/threads', [\app\http\controllers\ThreadController::class, 'index'])
+route::get('/threads', [\App\Http\Controllers\ThreadController::class, 'index'])
     ->name('threads.index');
-route::get('/threads/{threads}', [\app\http\controllers\ThreadController::class, 'show'])
+route::get('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'show'])
     ->name('threads.show');
-route::post('/threads', [\app\http\controllers\ThreadController::class, 'store'])
+route::post('/threads', [\App\Http\Controllers\ThreadController::class, 'store'])
     ->name('threads.store');
-route::put('/threads/{threads}', [\app\http\controllers\ThreadController::class, 'update'])
+route::put('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'update'])
     ->name('threads.update');
-route::delete('/threads/{threads}', [\app\http\controllers\ThreadController::class, 'destroy'])
+route::delete('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'destroy'])
     ->name('threads.destroy');
 
-route::get('/types', [\app\http\controllers\Typecontroller::class, 'index'])
+route::get('/types', [\App\Http\Controllers\Typecontroller::class, 'index'])
     ->name('type.index');
-route::get('/types/{type}', [\app\http\controllers\Typecontroller::class, 'show'])
+route::get('/types/{type}', [\App\Http\Controllers\Typecontroller::class, 'show'])
     ->name('type.show');
-route::post('/types', [\app\http\controllers\Typecontroller::class, 'store'])
+route::post('/types', [\App\Http\Controllers\Typecontroller::class, 'store'])
     ->name('type.store');
-route::put('/types/{type}', [\app\http\controllers\Typecontroller::class, 'update'])
+route::put('/types/{type}', [\App\Http\Controllers\Typecontroller::class, 'update'])
     ->name('type.update');
-route::delete('/types/{type}', [\app\http\controllers\Typecontroller::class, 'destroy'])
+route::delete('/types/{type}', [\App\Http\Controllers\Typecontroller::class, 'destroy'])
     ->name('type.destroy');
 
 route::get('/programs', [\App\Http\Controllers\ProgramController::class, 'index'])
     ->name('program.index');
-route::get('/programs/{program}', [\app\http\controllers\ProgramController::class, 'show'])
+route::get('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'show'])
     ->name('program.show');
-route::post('/programs', [\app\http\controllers\ProgramController::class, 'store'])
+route::post('/programs', [\App\Http\Controllers\ProgramController::class, 'store'])
     ->name('program.store');
-route::put('/programs/{program}', [\app\http\controllers\ProgramController::class, 'update'])
+route::put('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'update'])
     ->name('program.update');
-route::delete('/programs/{program}', [\app\http\controllers\ProgramController::class, 'destroy'])
+route::delete('/programs/{program}', [\App\Http\Controllers\ProgramController::class, 'destroy'])
     ->name('program.destroy');
 
 

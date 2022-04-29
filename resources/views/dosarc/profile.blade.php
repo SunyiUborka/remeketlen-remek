@@ -55,7 +55,4 @@
 @endsection
 
 @section('innerjs')
-    <script>
-
-    </script>
 @endsection

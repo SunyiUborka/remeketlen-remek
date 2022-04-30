@@ -38,7 +38,7 @@ class ProgramStoreRequests extends FormRequest
     public function messages() {
         return [
             'name.required' => 'A név megadása kötelező!',
-            'name.max' => "Túl hosszú a program neve, ha program több mint 45 karaktert tartalmaz",
+            'name.max' => "Túl hosszú a program neve, a program több mint 45 karaktert tartalmaz",
             'type_name.required' => 'A típus megadása kötelező!',
             'developer.max' => 'Készítő neve túl hosszú!',
             'category_name.required' => 'Nem adott meg kategóriát',

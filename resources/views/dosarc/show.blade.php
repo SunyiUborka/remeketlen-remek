@@ -19,6 +19,7 @@
                         <td>Megjelenés: </td>
                         <td>{{$data['release_date']}}</td>
                     </tr>
+                   
                     </tbody>
                 </table>
             </div>
@@ -32,7 +33,7 @@
                         <div class="program_details">
                             <div>
                                 <div class="form-item">
-                                    {{Form::open(['route' => 'comment.store', 'method' => 'post', 'class' => "auth-form"])}}
+                                    {{Form::open(['route' => 'threads.store', 'method' => 'post', 'class' => "auth-form"])}}
                                     {{Form::label('text', 'Szólj hozzá!' , ['class' => 'auth-label'])}}
                                     {{Form::text('text', $value ?? '', $attributes = ["class"=>"auth-input"])}}
                                     <div class="form-item">

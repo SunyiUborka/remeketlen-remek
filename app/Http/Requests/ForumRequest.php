@@ -39,18 +39,18 @@ class ForumRequest extends FormRequest
 
     public function messages()
     {
-        return [
+        
           
             return [
                 'program_id.required' => 'Nincs megadva program',
-                'threads_description.required' => "írja ki a threadet!",
-                'post_title_description.required' => "írja ki a threadet!",
-                'post_description.required' => "Megadása kötelező!",
+                'threads_description.required' => "írja ki a programszálat!",
+                'post_title_description.required' => "Adja meg a fórum nevét",
+                'post_description.required' => "Töltes ki a fórumot!",
                 
             ];
                 
             
-        ];
+      
     }
 
 }

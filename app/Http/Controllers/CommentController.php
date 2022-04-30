@@ -29,7 +29,7 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        Gate::authorize("create-belep");
+       // Gate::authorize("create-belep");
         Comment::create($request->validated());
     }
 
@@ -66,6 +66,6 @@ class CommentController extends Controller
     public function destroy($id)
     {
         Gate::authorize("author-role");
-        Comment::destroy('$id');
+        Comment::destroy($id);
     }
 }

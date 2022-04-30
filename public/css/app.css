@@ -135,9 +135,10 @@ input:last-child{
     align-items: center;
 }
 .card-text{
-    margin: 1rem;
+    margin: 0.5rem;
 }
 .card-title{
+    text-decoration: none;
     font-size: 130%;
     margin: 1rem;
     position: absolute;
@@ -271,4 +272,12 @@ input:last-child{
     .user-profile .user-image img{
         width: 90%;
     }
+}
+.program-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.program-right a{
+    margin-top: 1rem;
 }

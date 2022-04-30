@@ -22,7 +22,5 @@ class TypeSeeder extends Seeder
         Type::create([
             'name'=>'Játék'
         ]);
-
-
     }
 }

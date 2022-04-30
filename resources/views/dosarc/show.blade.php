@@ -23,13 +23,17 @@
                     </tbody>
                 </table>
             </div>
-            <img src="{{route('home')}}/{{$data['program_image']}}" alt="">
+            <div class="program-right">
+                <img src="{{route('home')}}/{{$data['program_image']}}" alt="">
+                <a href="{{route('home')}}/{{$data['program_file']}}" class="download">Letöltés</a>
+            </div>
+
         </div>
     </div>
 
 
                     <div class="program_data">
-                        <h1>Comments</h1>
+                        <h1>Kommentek</h1>
                         <div class="program_details">
                             <div>
                                 <div class="form-item">

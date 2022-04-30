@@ -1,6 +1,5 @@
 @extends('layouts.main')
-
-
+@section('icon', asset('favicon/conversation.png'))
 @section('content')
 
 <h1>Fórum létrehozása</h1>

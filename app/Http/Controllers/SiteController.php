@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Program;
+use App\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Providers\AuthServiceProvider;
@@ -11,7 +12,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('dosarc.home');
     }
 
     public function home()
@@ -22,7 +23,6 @@ class SiteController extends Controller
 
     public function show(Program $program) {
         Gate::authorize("create-belep" , "Az oldalt csak belépett felhasználók tekinthetik meg");
-        //$data = Program::findOrFail($id);
         return view('dosarc.show', [
             'data' => $program,
             'title' => $program['name']

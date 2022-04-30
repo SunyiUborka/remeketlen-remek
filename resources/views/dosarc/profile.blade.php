@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('icon', asset('favicon/user.png'))
 @section('content')
     <div class="user-profile">
         <div class="user-image">

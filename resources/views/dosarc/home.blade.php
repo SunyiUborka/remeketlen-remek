@@ -1,5 +1,5 @@
 @extends('layouts.main')
-
+@section('icon', asset('favicon/home.png'))
 @section('content')
     @auth
         <h1>Főoldal</h1>

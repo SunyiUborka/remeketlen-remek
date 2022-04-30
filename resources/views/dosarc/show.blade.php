@@ -1,5 +1,6 @@
 @extends('layouts.main')
 @section('title', $title)
+@section('icon', asset('favicon/detail.png'))
 @section('content')
     <div class="program_data">
         <h1>{{$data['name']}}</h1>
@@ -33,8 +34,10 @@
                             <div>
                                 <div class="form-item">
                                     {{Form::open(['route' => 'comment.store', 'method' => 'post', 'class' => "auth-form"])}}
-                                    {{Form::label('text', 'Szólj hozzá!' , ['class' => 'auth-label'])}}
-                                    {{Form::text('text', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+                                    <div class="form-item">
+                                        {{Form::label('text', 'Szólj hozzá!' , ['class' => 'auth-label'])}}
+                                        {{Form::textarea('text', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+                                    </div>
                                     <div class="form-item">
                                         {{Form::submit('Küldés', ['class' => 'btn auth-input'])}}
                                     </div>

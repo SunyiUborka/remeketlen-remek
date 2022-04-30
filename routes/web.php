@@ -18,9 +18,6 @@ Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
 
 // Oldalak
 
-Route::get('/home', [\App\Http\Controllers\SiteController::class, 'home'])
-    ->name('dosarc.home');
-
 Route::get('/show/{program}', [\App\Http\Controllers\SiteController::class, 'show'])
     ->name('dosarc.show');
 
@@ -41,9 +38,6 @@ Route::get('/upload', [\App\Http\Controllers\SiteController::class, 'upload'])
 
 Route::post('/dosarc', [\App\Http\Controllers\ProgramController::class, 'store'])
     ->name('dosarc.store');
-
-Route::get('/dosarc/profile', [\App\Http\Controllers\SiteController::class, 'profile'])
-    ->name('dosarc.profile');
 
 // Regisztráció
 

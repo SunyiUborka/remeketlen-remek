@@ -4,11 +4,6 @@
              <i class='bx bx-home' ></i>
              <span class="tooltip">Kezdőlap</span>
          </a>
-         <a href="" class="nav-icon">
-             <i class='bx bx-search-alt'></i>
-             <span class="tooltip">Kereső</span>
-         </a>
-
          <a href="{{route('dosarc.upload')}}" class="nav-icon">
              <i class='bx bx-upload' ></i>
              <span class="tooltip">Feltöltés</span>

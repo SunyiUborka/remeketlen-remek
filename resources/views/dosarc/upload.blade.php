@@ -37,7 +37,7 @@
             {{Form::date('release_date', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
  <div class="form-item">
-            {{Form::label('description', 'Kategória', ['class' => 'auth-label'])}}
+            {{Form::label('description', 'Leírás', ['class' => 'auth-label'])}}
             {{Form::text('description', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
         <div class="form-item">

@@ -16,9 +16,9 @@ class CreateThreadsTable extends Migration
     {
         Schema::create('threads', function (Blueprint $table) {
             $table->uuid('id')->default(DB::raw('(UUID())'))->primary();
-            $table->foreignUuid('program_id')->constrained("programs");
-            $table->timestamps();
+            $table->string('name', 55);
             $table->longtext('description');
+            $table->timestamps();
         });
     }
 

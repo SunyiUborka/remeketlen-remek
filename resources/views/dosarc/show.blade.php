@@ -30,27 +30,6 @@
 
         </div>
     </div>
-
-
-                    <div class="program_data">
-                        <h1>Kommentek</h1>
-                        <div class="program_details">
-                            <div>
-                                <div class="form-item">
-                                    {{Form::open(['route' => 'comment.store', 'method' => 'post', 'class' => "auth-form"])}}
-                                    <div class="form-item">
-                                        {{Form::label('text', 'Szólj hozzá!' , ['class' => 'auth-label'])}}
-                                        {{Form::textarea('text', $value ?? '', $attributes = ["class"=>"auth-input"])}}
-                                    </div>
-                                    <div class="form-item">
-                                        {{Form::submit('Küldés', ['class' => 'btn auth-input'])}}
-                                    </div>
-                                    {{Form::close()}}
-                                </div>
-                            </div>
-
-                        </div>
-
     </div>
 
 

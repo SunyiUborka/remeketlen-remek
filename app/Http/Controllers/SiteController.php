@@ -11,7 +11,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        return view('dosarc.home');
+        return view('welcome');
     }
 
     public function home()

@@ -36,6 +36,10 @@
             {{Form::label('release_date', 'Megjelenés', ['class' => 'auth-label'])}}
             {{Form::date('release_date', $value ?? '', $attributes = ["class"=>"auth-input"])}}
         </div>
+ <div class="form-item">
+            {{Form::label('description', 'Kategória', ['class' => 'auth-label'])}}
+            {{Form::text('description', $value ?? '', $attributes = ["class"=>"auth-input"])}}
+        </div>
         <div class="form-item">
             {{Form::submit('Feltöltés', ['class' => 'btn auth-input'])}}
         </div>

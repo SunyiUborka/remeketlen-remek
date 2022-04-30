@@ -6,6 +6,7 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Auth\Access\Response;
 
 
@@ -71,11 +72,10 @@ return Response::allow();
                 });
 
  
-                Gate::define("author-role" , function(User $user) {
+                Gate::define("author-role" , function(User $user , Comennt $comment) {
                     if ($user->role == "admin"
                     ||
-                     $user->username == Auth::user()->username) {
-
+                     $user->id == $comment->user_id) {
                         return Response::allow();
                                } else {
                                    return Response::deny($this->messages);

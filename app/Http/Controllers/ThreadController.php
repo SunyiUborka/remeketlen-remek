@@ -6,6 +6,7 @@ use App\Models\Thread;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use App\Providers\AuthServiceProvider;
+use App\Http\Requests\ForumRequest;
 
 class ThreadController extends Controller
 {
@@ -25,7 +26,7 @@ class ThreadController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ForumRequest $request)
     {
         Gate::authorize("create-belep");
         Thread::create($request->validated());

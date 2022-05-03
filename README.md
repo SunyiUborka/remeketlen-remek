@@ -532,11 +532,11 @@ A regisztrációhoz kell egy felhasználónév, ami maximum 16 karakter lehet, �
 
 Meg kell adnunk a felhasználónevünk és jelszavunk.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/bejelentkezés.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/bejelentkez%C3%A9s.jpg)
 
 ### 2.1.3 Navigációs felület
 
-![alt text](https://https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/registr%C3%A1c%C3%B3.jpg)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/navbar.jpg)
 
 Az első, a kis ház, a főmenü oldalának a gombja.
 
@@ -552,23 +552,23 @@ Az utolsó a kijelentkezés gomb.
 
 a) Képcseréhez kötelező egy képet feltölteni.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/kepfeltoltes.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/kepfeltoltes.jpg)
 
 b) Tudnunk kell a jelszó cseréjéhez a régi jelszavunk és kétszer meg kell adni az új jelszavat, aminek szintén minimum 8 karakternek kell lennie.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/jelszocsere.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/jelszocsere.jpg)
 
 ### 2.1.5 szoftver feltöltés
 
 Kötelező kitölteni a program neve mezőt, a kategóriát kiválasztani, feltölteni egy képet, megjelölni a típust, felölteni a kívánt fájlt és kijelölni a megjelenés napját, de nem kötelező kitölteni a készítő sort és a leírást.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/programfeltoltes.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/programfeltoltes.jpg)
 
 2.1.6 Forum létrehozása
 
 Kötelező kitölteni az inputot a fórum létrehozásához.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/Forumletrehozas.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/Forumletrehozas.jpg)
 
 # 3. Tesztelés
 

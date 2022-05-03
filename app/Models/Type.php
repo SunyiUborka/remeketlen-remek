@@ -12,7 +12,7 @@ class Type extends Model
     public $timestamps = false;
 
     public function programs() {
-        return HasMany(Program::class , 'program_id');
+        return $this->hasMany(Program::class , 'program_id');
         
         }
 

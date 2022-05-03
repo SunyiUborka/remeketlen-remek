@@ -11,13 +11,13 @@ class Thread extends Model
 
 
     public function program() {
-        return BelongsTo(Program::class);
+        return $this->belongsTo(Program::class);
         
         }
 
 
         public function posts() {
-            return HasMany(Post::class , 'thread_id');
+            return $this->hasMany(Post::class , 'thread_id');
             
             }
 

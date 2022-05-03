@@ -12,7 +12,7 @@ class Category extends Model
     public $timestamps = false;
 
     public function programs() {
-        return BelongsToMany(Program::class , 'program_categories');
+        return $this->belongsToMany(Program::class , 'program_categories');
 
 
 

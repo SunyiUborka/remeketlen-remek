@@ -550,11 +550,11 @@ Az utolsó a kijelentkezés gomb.
 
 ### 2.1.4 Profil szerkesztés
 
-a) Képcseréhez kötelező egy képet feltölteni.
+#### Képcseréhez kötelező egy képet feltölteni.
 
 ![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/kepfeltoltes.jpg)
 
-b) Tudnunk kell a jelszó cseréjéhez a régi jelszavunk és kétszer meg kell adni az új jelszavat, aminek szintén minimum 8 karakternek kell lennie.
+#### Tudnunk kell a jelszó cseréjéhez a régi jelszavunk és kétszer meg kell adni az új jelszavat, aminek szintén minimum 8 karakternek kell lennie.
 
 ![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/jelszocsere.jpg)
 

@@ -584,11 +584,11 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
 
 ```
 
-## 3. Tesztelés
+# 3. Tesztelés
 
-### 3.1 Web applikáció unit tesztek
+## 3.1 Web applikáció unit tesztek
 
-#### Csatlakozás teszt
+### Csatlakozás teszt
 
 ```php
     public function test_connecting()
@@ -597,7 +597,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
         $response->assertStatus(200);
     }
 ```
-#### Regisztráció teszt
+### Regisztráció teszt
 
 ```php
   public function test_register(){
@@ -611,7 +611,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
   }
 ```
 
-#### Login teszt
+### Login teszt
 
 ```php
     public function test_login(){
@@ -623,7 +623,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
     }
 ```
 
-#### kép feltöltés teszt
+### kép feltöltés teszt
 
 ```php
     public function test_profile_image_update(){
@@ -636,7 +636,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
     }
 ```
 
-#### jelszó cserélés teszt
+### jelszó cserélés teszt
 
 ```php
     public function test_password_change(){
@@ -652,7 +652,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
     }
 ```
 
-#### Program feltöltés teszt
+### Program feltöltés teszt
 
 ```php
       public function test_program_upload(){
@@ -674,7 +674,7 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
        }
 ```
 
-#### Forum létrehozás teszt
+### Forum létrehozás teszt
 
 ```php
     public function test_forum_create(){

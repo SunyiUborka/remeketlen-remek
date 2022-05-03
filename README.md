@@ -526,23 +526,17 @@ A frontend a view-kból állnak és lehetőséget ad webes felületeket készít
 
 A regisztrációhoz kell egy felhasználónév, ami maximum 16 karakter lehet, és egy jelszó, aminek minimum 8 karakternek kell lennie. Ezeken felül szükség van egy email cím-re is.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/registrácó.jpg?raw=true)
 
 ### 2.1.2 Bejelentkezés
 
 Meg kell adnunk a felhasználónevünk és jelszavunk.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/bejelentkezés.jpg?raw=true)
 
 ### 2.1.3 Navigációs felület
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/navbar.jpg?raw=true)
 
 Az első, a kis ház, a főmenü oldalának a gombja.
 
@@ -558,31 +552,23 @@ Az utolsó a kijelentkezés gomb.
 
 a) Képcseréhez kötelező egy képet feltölteni.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/kepfeltoltes.jpg?raw=true)
 
 b) Tudnunk kell a jelszó cseréjéhez a régi jelszavunk és kétszer meg kell adni az új jelszavat, aminek szintén minimum 8 karakternek kell lennie.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/jelszocsere.jpg?raw=true)
 
 ### 2.1.5 szoftver feltöltés
 
 Kötelező kitölteni a program neve mezőt, a kategóriát kiválasztani, feltölteni egy képet, megjelölni a típust, felölteni a kívánt fájlt és kijelölni a megjelenés napját, de nem kötelező kitölteni a készítő sort és a leírást.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/programfeltoltes.jpg?raw=true)
 
 2.1.6 Forum létrehozása
 
 Kötelező kitölteni az inputot a fórum létrehozásához.
 
-```php
-
-```
+![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/Forumletrehozas.jpg?raw=true)
 
 # 3. Tesztelés
 

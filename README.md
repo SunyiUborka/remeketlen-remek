@@ -526,7 +526,7 @@ A frontend a view-kból állnak és lehetőséget ad webes felületeket készít
 
 A regisztrációhoz kell egy felhasználónév, ami maximum 16 karakter lehet, és egy jelszó, aminek minimum 8 karakternek kell lennie. Ezeken felül szükség van egy email cím-re is.
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/registrácó.jpg?raw=true)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/registr%C3%A1c%C3%B3.jpg)
 
 ### 2.1.2 Bejelentkezés
 
@@ -536,7 +536,7 @@ Meg kell adnunk a felhasználónevünk és jelszavunk.
 
 ### 2.1.3 Navigációs felület
 
-![alt text](https://github.com/[SunyiUborka]/[remeketlen-remek]/kepek/[main]/navbar.jpg?raw=true)
+![alt text](https://https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/registr%C3%A1c%C3%B3.jpg)
 
 Az első, a kis ház, a főmenü oldalának a gombja.
 

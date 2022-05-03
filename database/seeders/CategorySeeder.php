@@ -28,7 +28,23 @@ class CategorySeeder extends Seeder
         ]);
 
         Category::create([
-            'name'=>'harcos'
+            'name'=>'Harcos'
+        ]);
+
+        Category::create([
+            'name'=>'Oktató'
+        ]);
+
+        Category::create([
+            'name'=>'Ismeretterjesztő'
+        ]);
+
+        Category::create([
+            'name'=>'Gyerekprogram'
+        ]);
+
+        Category::create([
+            'name'=> 'Kutató'
         ]);
 
 

@@ -23,7 +23,7 @@ class ProgramCategorySeeder extends Seeder
         ]);
         ProgramCategory::create([
             'program_id' => '6867ab85-c131-11ec-b3a7-0242ac120003',
-             'category_name'=>'harcos',
+             'category_name'=>'Harcos',
         ]);
     }
 }

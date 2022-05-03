@@ -78,7 +78,7 @@ Jelszó: password
 
 #### Adatbázis szerkezet
 
-![](media/820ef8a2b003f220e7646fa67138dab7.png)
+![alt text](https://github.com/SunyiUborka/remeketlen-remek/blob/main/kepek/adtaszerkezet.jpg)
 
 ### 1.4.2. Backend
 

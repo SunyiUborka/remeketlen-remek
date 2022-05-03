@@ -69,13 +69,14 @@ Adatbázis felhasználó neve: laravel
 
 Jelszó: password
 
-## 1.4 Program felépítés-e
+## 1.4 Program felépítése
 
 ### 1.4.1. Adatbázis
 
-Migrációk létrehozása: php artisan make:migration create_name_table
+#### Migrációk létrehozása
+`docker-compose exec php php artisan make:migration create_name_table`
 
-Adatbázis szerkezet:
+#### Adatbázis szerkezet
 
 ![](media/820ef8a2b003f220e7646fa67138dab7.png)
 
@@ -87,9 +88,9 @@ A modell foglalkozik az adatbázis kapcsolatával, ezáltal könnyen elérjük a
 
 A modellben különböző kapcsolatokat is létre lehet hozni, hogy egy megadott táblából mit kapjon meg a modellünk.
 
-Modellek:
+## Modellek
 
-1.  User model kódja:
+### User model kódja
 
 ```php
 class User extends Authenticatable
@@ -114,7 +115,7 @@ class User extends Authenticatable
 }
 ```
 
-2.  Program model kódja:
+### Program model kódja
 
 ```php
 class Program extends Model
@@ -133,8 +134,7 @@ class Program extends Model
     ];
 }
 ```
-
-3.  Category model kódja
+### Category model kódja
 
 ```php
 class Category extends Model
@@ -149,7 +149,7 @@ class Category extends Model
 }
 ```
 
-4.  Role model kódja:
+### Role model kódja
 
 ```php
 class Role extends Model
@@ -159,7 +159,7 @@ class Role extends Model
 }
 ```
 
-5.  Thread model kódja:
+### Thread model kódja
 
 ```php
 class Thread extends Model
@@ -172,7 +172,7 @@ class Thread extends Model
 }
 ```
 
-6.  Post model kódja:
+### Post model kódja
 
 ```php
 class Post extends Model
@@ -191,7 +191,7 @@ class Post extends Model
 }
 ```
 
-7.  Comment model kódja:
+### Comment model kódja
 
 ```php
 class Comment extends Model
@@ -206,7 +206,7 @@ class Comment extends Model
 }
 ```
 
-8.  Type model kódja:
+### Type model kódja
 
 ```php
 class Type extends Model
@@ -221,17 +221,16 @@ class Type extends Model
 }
 ```
 
+## Controllerek
+
 A controller végzi a felhasználó kéréseinek kezelését és kiszolgálását. Más néven vezérlőnek is hívhatjuk, így tudnak kommunikálni a nézetek és a modelek között.
 
 A controller fileokat az app/http/controllers útvonalon
-
 találjuk meg.
 
-Controllerek:
+### AuthController kód
 
-a) AuthController kód:
-
-Ez a controller felel, hogy megfelelő adatokkal be lehessen jelentkezni és majd kijelentkezni.
+A controller azért felel, hogy megfelelő adatokkal be lehessen jelentkezni és majd kijelentkezni.
 
 ```php
 class AuthController extends Controller
@@ -257,94 +256,264 @@ class AuthController extends Controller
 }
 ```
 
-A register validálja, hogy a kétszer bekért jelszavunk megegyezik-e, és utána, ha az sikeres, létrehoz nekünk egy felhasználót a megadott adatokkal.
+### RegisterController kód
 
-b) RegisterController kód:
-
-```php
-
-```
-
-A SiteController irányít minket az oldalak között.
-
-c) SiteController kód:
+A register az előre megírt validátorral ellenőrzi a megfelelő adatokat, majd ha ez sikeres volt, akkor a jelszót titkosítja és elmenti az adatbázisba és végül átírányít a kezdőoldalra, ahol bejelentkezhet a felhasználó.
 
 ```php
+class RegisterController extends Controller
+{
+    public function create()
+    {
+        return view("auth.create");
+    }
 
+    public function store(RegisterStoreRequest $request)
+    {
+        $data = $request->validated();
+        $data["password"] = Hash::make($data["password"]);
+
+        User::create($data);
+        return redirect()->route("home");
+    }
+}
 ```
 
-d) UserController kód:
+### SiteController kód
+
+SiteController irányít minket az oldalak között.
+
+```php
+class SiteController extends Controller
+{
+    public function index()
+    {
+        return view('dosarc.home');
+    }
+
+    public function home()
+    {
+        Gate::authorize("create-belep");
+        return view('dosarc.home');
+    }
+
+    public function show(Program $program) {
+        Gate::authorize("create-belep");
+        return view('dosarc.show', [
+            'data' => $program,
+            'title' => $program['name']
+        ]);
+    }
+
+    public function upload() {
+        Gate::authorize("create-belep");
+        return view('dosarc.upload');
+    }
+
+    public function forum() {
+        Gate::authorize("create-belep");
+        return view('dosarc.forum');
+    }
+
+    public function profile() {
+        Gate::authorize("create-belep");
+        return view('dosarc.profile');
+    }
+}
+```
+
+### UserController kód
 
 Itt töltjük fel az adatbázisba a profile képeket és megy végbe a jelszóváltoztatás.
 
 ```php
+class UserController extends Controller
+{
+    public function updateImage(UpdateUserImageRequest $request)
+    {
+        $data = $request->validated();
+        $fileimage = $data['user_image']->store('user_image');
+        $data['user_image'] = $fileimage;
+        Auth::user()->update($data);
+        return redirect()->back();
+    }
 
+    public function updatePassword(UpdatePasswordRequest $request)
+    {
+        $data = $request->validated();
+        if (!Hash::check($data['old_password'], Auth::user()->getAuthPassword())){
+            $request->session()->flash('bad_password', 'Hibás a jelenlegi jelszó!');
+            return redirect()->back();
+        }
+        $data['password'] = Hash::make($data['password']);
+        Auth::user()->update($data);
+        return redirect()->back();
+    }
+}
 ```
 
-A ProgramController oldja meg a program fileok tárolását.
+### ProgramController kód
 
-e) ProgramController kód:
+A ProgramController oldja meg a programok adatainak tárolását, megjelenítését és törlését.
 
+Törölni és szerkeszteni, csak megfelelő jogokkal lehetséges.
 ```php
+class ProgramController extends Controller
+{
+    public function index() {
+        return Program::all();
+    }
 
+    public function show($id) {
+        return Program::findOrFail($id);
+    }
+
+    public function store(ProgramStoreRequests $request) {
+        Gate::authorize("create-belep");
+        
+        $data = $request->validated();
+        
+        $filename =  $data['program_file']->store('program_file');
+        $fileimage = $data['program_image']->store('program_image');
+
+        $data['user_id'] = Auth::user()->id;
+        $data['program_file'] = $filename;
+        $data['program_image'] = $fileimage;
+
+        Program::create($data);
+
+        return redirect()->back();
+    }
+
+    public function update(ProgramStoreRequests $request , $id) {
+        Gate::authorize("admin-role");
+        Program::update($request->validated());
+    }
+
+    public function destroy($id) {
+        Gate::authorize("admin-role");
+        Program::delete($id);
+    }
+}
 ```
 
-Fájl tárolása:
+### Fájl tárolása
 
 A feltöltött fájlokat a Storage/app útvonalra linkeljük.
 
 Ezt a config/filesystem tehetjük meg; először az adattömb kulcsot kell megadni, aztán a megadjuk a nevét a mappának, ahol tárolni szeretnénk a fájlt.
 
-link kódja:
+#### link kódja
 
 ```php
-
+'links' => [
+        public_path('user_image') => storage_path('app/user_image'),
+        public_path('program_file') => storage_path('app/program_file'),
+        public_path('program_image') => storage_path('app/program_image'),
+    ],
 ```
 
-Útvonalak megadása:
+### Útvonalak megadása
 
 Az útvonalak megadása a routes/web.php fájlon belül lehetséges.
 
 A route függvénnyel crud műveleteket használunk, amivel visszakérhetünk egy vagy több adatot, frissíthetünk, létrehozhatunk és törölhetünk is, megadhatunk egy url címet is akár, amire hivatkozni tudunk. Azután vesszővel elválasztva adhatunk át adatokat egy controllerből és annak egy action meghívásával; emellett ezt el is nevezhetjük a könnyebb meghívás érdekében.
 
-route példa kód:
+#### route példa kód
 
 ```php
-
+Route::get('/', [\App\Http\Controllers\SiteController::class, 'index'])
+    ->name('home');
 ```
 
-Egyéni requestek:
+### Egyéni requestek
 
-A request generálása: 
+#### A request generálása
 
-```php
-
-```
+`docker-compose exec php php artisan make:request name`
 
 Ezeket a requesteket az app/http/requests mappába tudjuk generálni és saját meghívási szabályokat hozhatunk létre.
 
 Ehhez előbb meg kell vizsgálni, hogy a user a request szabálynak megfelelő requestet küld-e a modelek felé.
 
 ```php
+class LoginRequest extends FormRequest
+{
+    public function authorize()
+    {
+        return true;
+    }
 
+    public function rules()
+    {
+        return [
+            "username" => ["required"],
+            "password" => ["required"]
+        ];
+    }
+
+    public function messages() {
+        return [
+            'username.required' => 'A felhasználónév megadása kötelező!',
+            'password.required' => 'A jelszó megadása kötelező!',
+        ];
+    }
+}
 ```
 
-Rest api:
+### Rest api
 
 A web applikációban található rest api routeok a routes/api.php fájlban lehet megtalálni és ez ugyanúgy működik, mint a web routing, de azzal ellentétben az api route statless, vagyis nem tárol el plusz információt.
 
-api routing példa kódja:
+#### api routing példa kódja
 
 ```php
-
+route::get('/threads', [\App\Http\Controllers\ThreadController::class, 'index'])
+    ->name('threads.index');
+route::get('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'show'])
+    ->name('threads.show');
+route::post('/threads', [\App\Http\Controllers\ThreadController::class, 'store'])
+    ->name('threads.store');
+route::put('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'update'])
+    ->name('threads.update');
+route::delete('/threads/{threads}', [\App\Http\Controllers\ThreadController::class, 'destroy'])
+    ->name('threads.destroy');
 ```
+
+#### Controller példa kód
 
 Az api controllerekben kell kezelni a https requesteket.
 
-controller példa kód:
-
 ```php
+class ThreadController extends Controller
+{
+    public function index()
+    {
+        Thread::all();
+    }
 
+    public function store(ForumRequest $request)
+    {
+        Gate::authorize("create-belep");
+        Thread::create($request->validated());
+    }
+
+    public function show($id)
+    {
+        return Thread::findOrFail($id);
+    }
+
+    public function update(Request $request, $id)
+    {
+        Gate::authorize("admin-role");
+        Thread::update($request->validate());
+    }
+    public function destroy($id)
+    {
+        Gate::authorize("admin-role");
+        Thread::delete($id);
+    }
+}
 ```
 
 ### 1.4.5 Frontend
@@ -422,113 +591,41 @@ Kötelező kitölteni az inputot a fórum létrehozásához.
 a) Csatlakozás teszt
 
 ```php
-    public function test_connecting()
-    {
-        $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
 ```
 
 b) Regisztráció teszt
 
 ```php
-  public function test_register(){
-    $response = $this->post('/register',[
-         'username' => 'alma',
-         'email' => 'alma@email.com',
-         'password' => 'almaalma',
-         'password_confirmation' => 'almaalma'
-     ]);
-     $response->assertRedirect('/');
-  }
+
 ```
 
 c) Login teszt
 
 ```php
-    public function test_login(){
-        $response = $this->post('/login',[
-            'username' => 'alma',
-            'password'=> 'almaalma'
-        ]);
-        $response->assertRedirect('/');
-    }
+
 ```
 
 d) kép feltöltés teszt
 
 ```php
-    public function test_profile_image_update(){
 
-        Storage::fake('public');
-
-        $this->json('put', '/profile/image', [
-            'user_image' => $file = UploadedFile::fake()->image('random.jpg')
-        ]);
-
-        $this->assertEquals('user_image/' . $file->hashName(), UploadedFile::latest()->first()->file);
-
-        Storage::disk('public')->assertExists('user_image/' . $file->hashName());
-
-    }
 ```
 
 e) jelszó cserélés teszt
 
 ```php
-    public function test_password_change(){
 
-        $url = route('user.update-password');
-        $values = [
-            'old_password'=>'adminadmin',
-            'password'=>'adminadmin',
-            'password_confirmation' => 'adminadmin',
-        ];
-        $response = $this->post($url,$values);
-        $this->assertDatabaseHas(User::class, $values);
-        $response->assertRedirect('profile');
-    }
 ```
 
 f) Program feltöltés teszt
 
 ```php
-      public function test_program_upload(){
-            Storage::fake('public');
 
-            $response = $this->put( '/dosarc', [
-                'name'=> 'game',
-                'program_image' => $file_image = UploadedFile::fake()->image('random.jpg'),
-                'developer' => "",
-                'type_name' => 'Szoftver',
-                'category_name' => '',
-                'program_file' => $program_file = UploadedFile::fake()->create('file.zip'),
-                'release_date' => '',
-                'description' => ''
-
-              ]);
-
-        $this->assertEquals('user_image/' . $file_image->hashName(), UploadedFile::latest()->first()->file_image);
-        $this->assertEquals('program_file/' . $program_file->hashName(), UploadedFile::latest()->first()->program_file);
-
-        Storage::disk('public')->assertExists('user_image/' . $file_image->hashName());
-
-        $response->assertRedirect('/dosarc');
-       }
 ```
 
 g) Forum létrehozás teszt
 
 ```php
-    public function test_forum_create(){
-      $response = $this->get("/forum", [
-         'title' => 'game',
-          'title' => 'game for lövölde',
-          'thread' => 'lövölde jatek',
-          'description' => 'lövöldözös jatékocska',
-          'comment_text' => ' 10kill'
-       ]);
-       $response->assertRedirect('/forum');
-    }
+
 ```
